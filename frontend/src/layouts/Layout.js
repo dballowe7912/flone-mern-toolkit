@@ -3,7 +3,7 @@ import HeaderWrapper from "../components/header/HeaderWrapper";
 import FooterOne from "../components/footer/FooterOne";
 import ScrollToTop from '../components/scroll-to-top';
 
-const LayoutOne = ({
+const Layout = ({
   children,
   headerContainerClass,
   headerTop,
@@ -29,4 +29,4 @@ const LayoutOne = ({
   );
 };
 
-export default LayoutOne;
+export default Layout;

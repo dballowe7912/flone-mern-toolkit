@@ -12,10 +12,12 @@ const createProduct = async (req, res) => {
 // @route   GET /api/v1/products
 // @access  Public
 const getAllProducts = async (req, res) => {
-    const pageSize = 12
-    const page = Number(req.query.pageNumber) || 1
+    // const pageSize = 12
+    // const page = Number(req.query.pageNumber) || 1
     
-    const products = await Product.find({}).limit(pageSize).skip(pageSize * (page - 1))
+    const products = await Product.find({})
+        // .limit(pageSize)
+        // .skip(pageSize * (page - 1))
     res.status(200).json({ products })
 }
 

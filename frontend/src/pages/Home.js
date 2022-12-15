@@ -1,14 +1,14 @@
 import React from "react";
 import { Fragment } from "react";
 // import SEO from "../../components/seo";
-import LayoutOne from "../layouts/LayoutOne";
+import Layout from "../layouts/Layout";
 import HeroSliderOne from "../components/heroSlider/HeroSliderOne";
 import FeatureIcon from "../components/featureIcon/FeatureIcon";
 import TabProduct from "../components/tabProduct/TabProduct";
 // import BlogFeatured from "../../wrappers/blog-featured/BlogFeatured";
 // import { selectProduct, selectProducts } from '../../store/slices/product-slice'
 
-const HomeFashion = () => {
+const Home = () => {
   
   return (
     <Fragment>
@@ -16,7 +16,7 @@ const HomeFashion = () => {
         titleTemplate="Fashion Home"
         description="Fashion home of flone react minimalist eCommerce template."
       /> */}
-      <LayoutOne
+      <Layout
         headerContainerClass="container-fluid"
         headerPaddingClass="header-padding-1"
       >
@@ -31,9 +31,9 @@ const HomeFashion = () => {
 
         {/* blog featured */}
         {/* <BlogFeatured spaceBottomClass="pb-55" /> */}
-      </LayoutOne>
+      </Layout>
     </Fragment>
   );
 };
 
-export default HomeFashion;
+export default Home;

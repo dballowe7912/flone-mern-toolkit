@@ -1,8 +1,9 @@
 import React, { Suspense, lazy } from 'react'
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
-const HomeFashion = lazy(() => import("./pages/HomeFashion"));
-// const ShopGridStandard = lazy(() => import("./pages/shop/ShopGridStandard"));
+
+const Home = lazy(() => import("./pages/Home"));
+const ShopGrid = lazy(() => import("./pages/ShopGrid"));
 // const Product = lazy(() => import("./pages/shop-product/Product"));
 // const About = lazy(() => import("./pages/other/About"));
 // const Contact = lazy(() => import("./pages/other/Contact"));
@@ -30,13 +31,13 @@ const App = () => {
             <Routes>
                 <Route
                     path={process.env.PUBLIC_URL + "/"}
-                    element={<HomeFashion/>}
-                />
-                {/* <Route
-                    path={process.env.PUBLIC_URL + "/shop-grid-standard"}
-                    element={<ShopGridStandard/>}
+                    element={<Home/>}
                 />
                 <Route
+                    path={process.env.PUBLIC_URL + "/shop-grid"}
+                    element={<ShopGrid/>}
+                />
+                {/*<Route
                     path={process.env.PUBLIC_URL + "/product/:id"}
                     element={<Product />}
                 />
