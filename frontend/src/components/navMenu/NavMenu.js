@@ -1,9 +1,7 @@
 import { Link } from "react-router-dom";
-import { useTranslation } from "react-i18next";
 import clsx from "clsx";
 
 const NavMenu = ({ menuWhiteClass, sidebarMenu }) => {
-  const { t } = useTranslation();
   
   return (
     <div
@@ -14,24 +12,24 @@ const NavMenu = ({ menuWhiteClass, sidebarMenu }) => {
       <nav>
         <ul>
           <li>
-            <Link to={process.env.PUBLIC_URL + "/shop-grid-standard"}>
+            <Link to={process.env.PUBLIC_URL + "/shop-grid"}>
               {" "}
-              {t("shop")}
+              {("shop")}
             </Link>
           </li>
           <li>
-            <Link to={process.env.PUBLIC_URL + "/shop-grid-standard"}>
-              {t("collection")}
+            <Link to={process.env.PUBLIC_URL + "/shop-grid"}>
+              {("collection")}
             </Link>
           </li>
           <li>
             <Link to={process.env.PUBLIC_URL + "/about"}>
-                {t("about_us")}
+                {("about_us")}
             </Link>
           </li>
           <li>
               <Link to={process.env.PUBLIC_URL + "/contact"}>
-                {t("contact_us")}
+                {("contact_us")}
               </Link>
           </li>
         </ul>

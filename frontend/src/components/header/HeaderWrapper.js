@@ -4,7 +4,6 @@ import Logo from "./Logo";
 import NavMenu from "../navMenu/NavMenu";
 import IconGroup from "../IconGroup/IconGroup";
 // import MobileMenu from "../mobileMenu/MobileMenu";
-import HeaderTop from "./HeaderTop";
 
 const HeaderWrapper = ({
   layout,
@@ -32,19 +31,6 @@ const HeaderWrapper = ({
 
   return (
     <header className={clsx("header-area clearfix", headerBgClass, headerPositionClass)}>
-      <div
-        className={clsx(
-          "header-top-area", 
-          headerPaddingClass, top === "visible" ? "d-none d-lg-block" : "d-none", 
-          borderStyle === "fluid-border" && "border-none" 
-        )}
-      >
-        <div className={layout === "container-fluid" ? layout : "container"}>
-          {/* header top */}
-          <HeaderTop borderStyle={borderStyle} />
-        </div>
-      </div>
-
       <div
         className={clsx(
           headerPaddingClass, 
