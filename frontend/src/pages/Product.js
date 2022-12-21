@@ -14,7 +14,7 @@ const Product = () => {
   let { id } = useParams()
   const dispatch = useDispatch()
   const product = useSelector((state) => state.product.product)
-  console.log(product);
+  
   useEffect(() => {
     dispatch(fetchProduct(id))
   }, [])

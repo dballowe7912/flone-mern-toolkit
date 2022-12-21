@@ -5,7 +5,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 const Home = lazy(() => import("./pages/Home"));
 const ShopGrid = lazy(() => import("./pages/ShopGrid"));
 const Product = lazy(() => import("./pages/Product"));
-// const About = lazy(() => import("./pages/other/About"));
+const About = lazy(() => import("./pages/About"));
 // const Contact = lazy(() => import("./pages/other/Contact"));
 // const MyAccount = lazy(() => import("./pages/other/MyAccount"));
 // const LoginRegister = lazy(() => import("./pages/other/LoginRegister"));
@@ -41,11 +41,11 @@ const App = () => {
                     path={process.env.PUBLIC_URL + "/product/:id"}
                     element={<Product />}
                 />
-                {/*<Route
+                <Route
                     path={process.env.PUBLIC_URL + "/about"}
                     element={<About/>}
                 />
-                <Route
+                {/*<Route
                     path={process.env.PUBLIC_URL + "/contact"}
                     element={<Contact/>}
                 />
