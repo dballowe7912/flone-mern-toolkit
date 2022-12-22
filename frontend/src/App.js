@@ -6,9 +6,9 @@ const Home = lazy(() => import("./pages/Home"));
 const ShopGrid = lazy(() => import("./pages/ShopGrid"));
 const Product = lazy(() => import("./pages/Product"));
 const About = lazy(() => import("./pages/About"));
-// const Contact = lazy(() => import("./pages/other/Contact"));
-// const MyAccount = lazy(() => import("./pages/other/MyAccount"));
-// const LoginRegister = lazy(() => import("./pages/other/LoginRegister"));
+const Contact = lazy(() => import("./pages/Contact"));
+const MyAccount = lazy(() => import("./pages/MyAccount"));
+const LoginRegister = lazy(() => import("./pages/LoginRegister"));
 // const Cart = lazy(() => import("./pages/other/Cart"));
 // const Wishlist = lazy(() => import("./pages/other/Wishlist"));
 // const Compare = lazy(() => import("./pages/other/Compare"));
@@ -45,7 +45,7 @@ const App = () => {
                     path={process.env.PUBLIC_URL + "/about"}
                     element={<About/>}
                 />
-                {/*<Route
+                <Route
                     path={process.env.PUBLIC_URL + "/contact"}
                     element={<Contact/>}
                 />
@@ -57,7 +57,7 @@ const App = () => {
                     path={process.env.PUBLIC_URL + "/login-register"}
                     element={<LoginRegister/>}
                 />
-                <Route
+                {/*<Route
                     path={process.env.PUBLIC_URL + "/cart"}
                     element={<Cart/>}
                 />
