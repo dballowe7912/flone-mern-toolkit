@@ -1,20 +1,27 @@
 import React, { Fragment } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { login } from "../features/user/user-slice";
 import { Link, useLocation } from "react-router-dom"; 
 import Tab from "react-bootstrap/Tab";
 import Nav from "react-bootstrap/Nav";
-// import SEO from "../../components/seo";
+import SEO from "../components/seo/seo";
 import LayoutOne from "../layouts/Layout";
 import Breadcrumb from "../components/breadcrumb/Breadcrumb";
 
 const LoginRegister = () => {
   let { pathname } = useLocation();
+  const dispatch = useDispatch()
+
+  const onSubmit = (email, password) => {
+    dispatch(login(email, password))
+  }
 
   return (
     <Fragment>
-      {/* <SEO
+      <SEO
         titleTemplate="Login"
-        description="Login page of flone react minimalist eCommerce template."
-      /> */}
+        description="Login page of eCommerce template."
+      />
       <LayoutOne headerTop="visible">
         {/* breadcrumb */}
         <Breadcrumb 

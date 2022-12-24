@@ -1,8 +1,7 @@
-import PropTypes from "prop-types";
 import clsx from "clsx";
 import { Link } from "react-router-dom";
 
-const BannerOneSingle = ({ data, spaceBottomClass }) => {
+const BannerSingle = ({ data, spaceBottomClass }) => {
   return (
       <div className={clsx("single-banner", spaceBottomClass)}>
         <Link to={process.env.PUBLIC_URL + data.link}>
@@ -21,9 +20,4 @@ const BannerOneSingle = ({ data, spaceBottomClass }) => {
   );
 };
 
-BannerOneSingle.propTypes = {
-  data: PropTypes.shape({}),
-  spaceBottomClass: PropTypes.string
-};
-
-export default BannerOneSingle;
+export default BannerSingle;

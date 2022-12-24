@@ -1,10 +1,10 @@
 import clsx from "clsx";
 import { Link } from "react-router-dom";
-import FooterCopyright from "../../components/footer/FooterCopyright";
-import FooterNewsletter from "../../components/footer/FooterNewsletter";
+import FooterCopyright from "./FooterCopyright";
+import FooterNewsletter from "./FooterNewsletter";
 
 
-const FooterOne = ({
+const Footer = ({
   backgroundColorClass,
   spaceTopClass,
   spaceBottomClass,
@@ -172,4 +172,4 @@ const FooterOne = ({
   );
 };
 
-export default FooterOne;
+export default Footer;

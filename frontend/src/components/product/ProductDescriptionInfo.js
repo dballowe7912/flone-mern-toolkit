@@ -1,4 +1,3 @@
-import PropTypes from "prop-types";
 import React, { Fragment, useState } from "react";
 import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
@@ -294,17 +293,6 @@ const ProductDescriptionInfo = ({
       </div>
     </div>
   );
-};
-
-ProductDescriptionInfo.propTypes = {
-  cartItems: PropTypes.array,
-  compareItem: PropTypes.shape({}),
-  currency: PropTypes.shape({}),
-  discountedPrice: PropTypes.number,
-  finalDiscountedPrice: PropTypes.number,
-  finalProductPrice: PropTypes.number,
-  product: PropTypes.shape({}),
-  wishlistItem: PropTypes.shape({})
 };
 
 export default ProductDescriptionInfo;

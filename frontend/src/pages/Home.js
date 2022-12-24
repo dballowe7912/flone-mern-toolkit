@@ -1,6 +1,6 @@
 import React from "react";
 import { Fragment } from "react";
-// import SEO from "../../components/seo";
+import SEO from "../components/seo/seo";
 import Layout from "../layouts/Layout";
 import HeroSliderOne from "../components/heroSlider/HeroSliderOne";
 import FeatureIcon from "../components/featureIcon/FeatureIcon";
@@ -12,10 +12,10 @@ const Home = () => {
   
   return (
     <Fragment>
-      {/* <SEO
+      <SEO
         titleTemplate="Fashion Home"
-        description="Fashion home of flone react minimalist eCommerce template."
-      /> */}
+        description="Home page of eCommerce template."
+      />
       <Layout
         headerContainerClass="container-fluid"
         headerPaddingClass="header-padding-1"

@@ -1,7 +1,7 @@
 import clsx from "clsx"
 import Swiper, { SwiperSlide } from "../swiper";
-import BrandLogoOneSingle from "./BrandLogoOneSingle";
-import brandLogoData from "./brand-logo-one.json";
+import BrandLogoSingle from "./BrandLogoSingle";
+import brandLogoData from "./brand-logo.json";
 
 const settings = {
   loop: true,
@@ -23,7 +23,7 @@ const settings = {
   }
 };
 
-const BrandLogoSliderOne = ({ spaceBottomClass, spaceTopClass }) => {
+const BrandLogoSlider = ({ spaceBottomClass, spaceTopClass }) => {
   return (
     <div className={clsx("brand-logo-area", spaceBottomClass, spaceTopClass)}>
       <div className="container">
@@ -32,7 +32,7 @@ const BrandLogoSliderOne = ({ spaceBottomClass, spaceTopClass }) => {
             <Swiper options={settings}>
               {brandLogoData.map((single, key) => (
                 <SwiperSlide key={key}>
-                  <BrandLogoOneSingle
+                  <BrandLogoSingle
                     data={single}
                     spaceBottomClass="mb-30"
                   />
@@ -46,4 +46,4 @@ const BrandLogoSliderOne = ({ spaceBottomClass, spaceTopClass }) => {
   );
 };
 
-export default BrandLogoSliderOne;
+export default BrandLogoSlider;

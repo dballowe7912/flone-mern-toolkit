@@ -1,5 +1,3 @@
-import PropTypes from "prop-types";
-
 const FeatureIconSingle = ({ singleFeature }) => {
   return (
     <div className="support-wrap mb-30">
@@ -16,10 +14,6 @@ const FeatureIconSingle = ({ singleFeature }) => {
       </div>
     </div>
   );
-};
-
-FeatureIconSingle.propTypes = {
-  singleFeature: PropTypes.shape({})
 };
 
 export default FeatureIconSingle;

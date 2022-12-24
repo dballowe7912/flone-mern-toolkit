@@ -3,7 +3,6 @@ const connectDB = require('./config/db')
 const colors = require('colors')
 require('dotenv').config()
 
-
 const app = express()
 const NODE_ENV = process.env.NODE_ENV
 const PORT = process.env.PORT || 5000
@@ -15,12 +14,14 @@ app.use(express.json())
 
 // routes
 const productRouter = require('./routes/productRoutes')
+const userRouter = require('./routes/userRoutes')
 
 app.get('/', (req, res) => {
     res.status(200).json({ msg: "API is running..." })
 })
 
 app.use('/api/v1/products', productRouter)
+app.use('/api/v1/users', userRouter)
 
 app.listen(
     5000,

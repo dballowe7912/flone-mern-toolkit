@@ -1,4 +1,3 @@
-import PropTypes from "prop-types";
 import clsx from "clsx";
 import { Link } from "react-router-dom";
 
@@ -23,12 +22,6 @@ const FooterCopyright = ({ footerLogo, spaceBottomClass, colorClass }) => {
       </p>
     </div>
   );
-};
-
-FooterCopyright.propTypes = {
-  footerLogo: PropTypes.string,
-  spaceBottomClass: PropTypes.string,
-  colorClass: PropTypes.string
 };
 
 export default FooterCopyright;

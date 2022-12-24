@@ -1,7 +1,7 @@
 import React, { Fragment, useEffect, useState } from "react"
 import { useSelector, useDispatch } from "react-redux"
 import { useParams, useLocation } from "react-router-dom"
-// import SEO from "../../components/seo"
+import SEO from "../components/seo/seo"
 import LayoutOne from "../layouts/Layout"
 import Breadcrumb from "../components/breadcrumb/Breadcrumb"
 import RelatedProductSlider from "../components/product/RelatedProductSlider"
@@ -21,10 +21,10 @@ const Product = () => {
 
   return (
     <Fragment>
-      {/* <SEO
+      <SEO
         titleTemplate="Product Page"
-        description="Product Page of flone react minimalist eCommerce template."
-      /> */}
+        description="Product Page of eCommerce template."
+      />
 
       <LayoutOne headerTop="visible">
         {/* breadcrumb */}

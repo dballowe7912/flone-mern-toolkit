@@ -1,4 +1,3 @@
-import PropTypes from "prop-types";
 import clsx from "clsx";
 
 const SectionTitleWithText = ({ spaceTopClass, spaceBottomClass }) => {
@@ -18,11 +17,6 @@ const SectionTitleWithText = ({ spaceTopClass, spaceBottomClass }) => {
       </div>
     </div>
   );
-};
-
-SectionTitleWithText.propTypes = {
-  spaceBottomClass: PropTypes.string,
-  spaceTopClass: PropTypes.string
 };
 
 export default SectionTitleWithText;

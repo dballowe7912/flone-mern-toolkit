@@ -1,6 +1,6 @@
 import { Fragment } from "react"; 
 import { useLocation } from "react-router-dom";
-// import SEO from "../../components/seo";
+import SEO from "../components/seo/seo";
 import LayoutOne from "../layouts/Layout";
 import Breadcrumb from "../components/breadcrumb/Breadcrumb";
 import GoogleMap from "../components/google-map"
@@ -10,10 +10,10 @@ const Contact = () => {
 
   return (
     <Fragment>
-      {/* <SEO
+      <SEO
         titleTemplate="Contact"
-        description="Contact page of flone react minimalist eCommerce template."
-      /> */}
+        description="Contact page of eCommerce template."
+      />
       <LayoutOne headerTop="visible">
         {/* breadcrumb */}
         <Breadcrumb 

@@ -1,6 +1,6 @@
 import { Fragment } from "react";
 import HeaderWrapper from "../components/header/HeaderWrapper";
-import FooterOne from "../components/footer/FooterOne";
+import Footer from "../components/footer/Footer";
 import ScrollToTop from '../components/scroll-to-top';
 
 const Layout = ({
@@ -19,7 +19,7 @@ const Layout = ({
         headerPositionClass={headerPositionClass}
       />
       {children}
-      <FooterOne
+      <Footer
         backgroundColorClass="bg-gray"
         spaceTopClass="pt-100"
         spaceBottomClass="pb-70"

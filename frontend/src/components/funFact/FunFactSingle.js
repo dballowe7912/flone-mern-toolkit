@@ -3,7 +3,7 @@ import clsx from "clsx";
 import CountUp from "react-countup";
 import VisibilitySensor from "react-visibility-sensor";
 
-const FunFactOneSingle = ({ data, spaceBottomClass, textAlignClass }) => {
+const FunFactSingle = ({ data, spaceBottomClass, textAlignClass }) => {
   const [didViewCountUp, setDidViewCountUp] = useState(false);
 
   const onVisibilityChange = isVisible => {
@@ -30,4 +30,4 @@ const FunFactOneSingle = ({ data, spaceBottomClass, textAlignClass }) => {
   );
 };
 
-export default FunFactOneSingle;
+export default FunFactSingle;

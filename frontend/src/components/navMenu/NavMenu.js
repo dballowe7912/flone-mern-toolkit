@@ -14,22 +14,22 @@ const NavMenu = ({ menuWhiteClass, sidebarMenu }) => {
           <li>
             <Link to={process.env.PUBLIC_URL + "/shop-grid"}>
               {" "}
-              {("shop")}
+              shop
             </Link>
           </li>
           <li>
             <Link to={process.env.PUBLIC_URL + "/shop-grid"}>
-              {("collection")}
+              collection
             </Link>
           </li>
           <li>
             <Link to={process.env.PUBLIC_URL + "/about"}>
-                {("about_us")}
+                about us
             </Link>
           </li>
           <li>
               <Link to={process.env.PUBLIC_URL + "/contact"}>
-                {("contact_us")}
+                contact us
               </Link>
           </li>
         </ul>

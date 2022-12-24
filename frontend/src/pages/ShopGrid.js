@@ -3,7 +3,7 @@ import Paginator from 'react-hooks-paginator';
 import { useSelector } from "react-redux";
 import { useLocation } from "react-router-dom"
 import { getSortedProducts } from '../helpers/product';
-// import SEO from "../../components/seo";
+import SEO from "../components/seo/seo"
 import Layout from '../layouts/Layout';
 import Breadcrumb from '../components/breadcrumb/Breadcrumb';
 import ShopSidebar from '../components/shop/ShopSidebar';
@@ -48,10 +48,10 @@ const ShopGrid = () => {
 
     return (
         <Fragment>
-            {/* <SEO
+            <SEO
                 titleTemplate="Shop Page"
-                description="Shop page of flone react minimalist eCommerce template."
-            /> */}
+                description="Shop page of eCommerce template."
+            />
 
             <Layout headerTop="visible">
                 {/* breadcrumb */}

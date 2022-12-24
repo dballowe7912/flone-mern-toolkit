@@ -1,6 +1,6 @@
 import clsx from "clsx";
 
-const BrandLogoOneSingle = ({ data, spaceBottomClass }) => {
+const BrandLogoSingle = ({ data, spaceBottomClass }) => {
   return (
     <div className={clsx("single-brand-logo", spaceBottomClass)}>
       <img src={process.env.PUBLIC_URL + data.image} alt="" />
@@ -8,4 +8,4 @@ const BrandLogoOneSingle = ({ data, spaceBottomClass }) => {
   );
 };
 
-export default BrandLogoOneSingle;
+export default BrandLogoSingle;

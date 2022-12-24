@@ -1,7 +1,7 @@
 import { Fragment } from "react"; 
 import { useLocation } from "react-router-dom"; 
 import Accordion from "react-bootstrap/Accordion";
-// import SEO from "../../components/seo";
+import SEO from "../components/seo/seo";
 import LayoutOne from "../layouts/Layout";
 import Breadcrumb from "../components/breadcrumb/Breadcrumb";
 
@@ -10,10 +10,10 @@ const MyAccount = () => {
 
   return (
     <Fragment>
-      {/* <SEO
+      <SEO
         titleTemplate="My Account"
-        description="My Account page of flone react minimalist eCommerce template."
-      /> */}
+        description="My Account page of eCommerce template."
+      />
       <LayoutOne headerTop="visible">
         {/* breadcrumb */}
         <Breadcrumb 

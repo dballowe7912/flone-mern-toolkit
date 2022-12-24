@@ -1,15 +1,15 @@
 import clsx from "clsx";
 import bannerData from "../../data/banner-one.json";
-import BannerOneSingle from "./BannerOneSingle";
+import BannerSingle from "./BannerSingle";
 
-const BannerOne = ({ spaceTopClass, spaceBottomClass }) => {
+const Banner = ({ spaceTopClass, spaceBottomClass }) => {
   return (
     <div className={clsx("banner-area", spaceTopClass, spaceBottomClass)}>
       <div className="container">
         <div className="row">
           {bannerData?.map((single, key) => (
             <div className="col-lg-4 col-md-4" key={key}>
-              <BannerOneSingle
+              <BannerSingle
                 data={single}
                 spaceBottomClass="mb-30"
               />
@@ -21,4 +21,4 @@ const BannerOne = ({ spaceTopClass, spaceBottomClass }) => {
   );
 };
 
-export default BannerOne;
+export default Banner;

@@ -1,15 +1,15 @@
 import clsx from "clsx";
-import funFactData from "./fun-fact-one.json";
-import FunFactOneSingle from "./FunFactOneSingle";
+import funFactData from "./fun-fact.json";
+import FunFactSingle from "./FunFactSingle";
 
-const FunFactOne = ({ spaceTopClass, spaceBottomClass, bgClass }) => {
+const FunFact = ({ spaceTopClass, spaceBottomClass, bgClass }) => {
   return (
     <div className={clsx("funfact-area", spaceTopClass, spaceBottomClass, bgClass)}>
       <div className="container">
         <div className="row">
           {funFactData?.map((single, key) => (
             <div className="col-lg-3 col-md-6 col-sm-6" key={key}>
-              <FunFactOneSingle
+              <FunFactSingle
                 data={single}
                 spaceBottomClass="mb-30"
                 textAlignClass="text-center"
@@ -22,4 +22,4 @@ const FunFactOne = ({ spaceTopClass, spaceBottomClass, bgClass }) => {
   );
 };
 
-export default FunFactOne;
+export default FunFact;
