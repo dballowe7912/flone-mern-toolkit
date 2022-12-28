@@ -6,7 +6,7 @@ const {
     getSingleProduct, 
     updateProduct,
     deleteProduct
-} = require('../controllers/productController')
+} = require('../controllers/product.controller')
 
 router.route('/')
     .post(createProduct)

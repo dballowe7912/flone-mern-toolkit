@@ -1,4 +1,4 @@
-const User = require('../models/userModel')
+const User = require('../models/user.model')
 const generateToken = require('../utils/generateToken')
 
 // @desc    Auth user & get token

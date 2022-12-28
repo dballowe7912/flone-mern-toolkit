@@ -2,7 +2,7 @@ import React, { Fragment, useEffect, useState } from "react"
 import { useSelector, useDispatch } from "react-redux"
 import { useParams, useLocation } from "react-router-dom"
 import SEO from "../components/seo/seo"
-import LayoutOne from "../layouts/Layout"
+import Layout from "../layouts/Layout"
 import Breadcrumb from "../components/breadcrumb/Breadcrumb"
 import RelatedProductSlider from "../components/product/RelatedProductSlider"
 import ProductDescriptionTab from "../components/product/ProductDescriptionTab"
@@ -26,7 +26,7 @@ const Product = () => {
         description="Product Page of eCommerce template."
       />
 
-      <LayoutOne headerTop="visible">
+      <Layout headerTop="visible">
         {/* breadcrumb */}
         <Breadcrumb 
           pages={[
@@ -56,7 +56,7 @@ const Product = () => {
           spaceBottomClass="pb-95"
           category={product.category[0]}
         /> : <div></div> }
-      </LayoutOne>
+      </Layout>
     </Fragment>
   );
 };
