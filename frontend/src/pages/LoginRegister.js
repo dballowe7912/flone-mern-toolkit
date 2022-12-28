@@ -1,7 +1,7 @@
-import React, { Fragment } from "react";
+import React, { Fragment, useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { login } from "../features/user/user-slice";
-import { Link, useLocation } from "react-router-dom"; 
+import { Link, useLocation, useNavigate } from "react-router-dom"; 
+import { login, reset } from "../features/auth/auth-slice";
 import Tab from "react-bootstrap/Tab";
 import Nav from "react-bootstrap/Nav";
 import SEO from "../components/seo/seo";
@@ -9,11 +9,54 @@ import LayoutOne from "../layouts/Layout";
 import Breadcrumb from "../components/breadcrumb/Breadcrumb";
 
 const LoginRegister = () => {
-  let { pathname } = useLocation();
+  const [ formData, setFormData ] = useState({
+    email: '',
+    password: ''
+  })
+
+  const { email, password } = formData
+
+  const navigate = useNavigate()
   const dispatch = useDispatch()
 
-  const onSubmit = (email, password) => {
-    dispatch(login(email, password))
+  const { user, isLoading, isError, isSuccess, message } = useSelector(
+    (state) => state.auth
+  )
+
+  let { pathname } = useLocation();
+
+  useEffect(() => {
+    if (isError) {
+      console.log(message)
+    }
+
+    if (isSuccess || user) {
+      navigate('/')
+    }
+
+    dispatch(reset())
+  }, [user, isError, isSuccess, message, navigate, dispatch])
+
+  const onChange = (e) => {
+    setFormData((prevState) => ({
+      ...prevState,
+      [e.target.name]: e.target.value,
+    }))
+  }
+
+  const onSubmit = (e) => {
+    e.preventDefault()
+
+    const userData = {
+      email,
+      password,
+    }
+
+    dispatch(login(userData))
+  }
+
+  const handleRegister = (e) => {
+    console.log(e);
   }
 
   return (
@@ -52,16 +95,20 @@ const LoginRegister = () => {
                       <Tab.Pane eventKey="login">
                         <div className="login-form-container">
                           <div className="login-register-form">
-                            <form>
+                            <form onSubmit={onSubmit}>
                               <input
-                                type="text"
-                                name="user-name"
-                                placeholder="Username"
+                                type="email"
+                                name="email"
+                                placeholder="Email"
+                                onChange={onChange}
+                                value={email}
                               />
                               <input
                                 type="password"
-                                name="user-password"
+                                name="password"
                                 placeholder="Password"
+                                onChange={onChange}
+                                value={password}
                               />
                               <div className="button-box">
                                 <div className="login-toggle-btn">
@@ -82,7 +129,7 @@ const LoginRegister = () => {
                       <Tab.Pane eventKey="register">
                         <div className="login-form-container">
                           <div className="login-register-form">
-                            <form>
+                            <form onSubmit={handleRegister}>
                               <input
                                 type="text"
                                 name="user-name"
