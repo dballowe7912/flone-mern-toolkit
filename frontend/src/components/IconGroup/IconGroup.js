@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
+import { logout } from "../../features/auth/auth-slice";
 import clsx from "clsx";
 import MenuCart from "./MenuCart";
 
@@ -17,7 +18,7 @@ const IconGroup = ({ iconWhiteClass }) => {
   const { compareItems } = useSelector((state) => state.compare);
   const { wishlistItems } = useSelector((state) => state.wishlist);
   const { cartItems } = useSelector((state) => state.cart);
-
+  const user = useSelector((state) => state.auth.user)
   return (
     <div className={clsx("header-right-wrap", iconWhiteClass)} >
       <div className="same-style header-search d-none d-lg-block">
@@ -42,9 +43,15 @@ const IconGroup = ({ iconWhiteClass }) => {
         </button>
         <div className="account-dropdown">
           <ul>
-            <li>
-              <Link to={process.env.PUBLIC_URL + "/login-register"}>Login</Link>
-            </li>
+            { user ? 
+              <li>
+                <Link to={process.env.PUBLIC_URL + "/login-register"}>Login</Link>
+              </li>
+              :
+              <li>
+                <button onClick={logout()}>logout</button>
+              </li>
+            }
             <li>
               <Link to={process.env.PUBLIC_URL + "/login-register"}>
                 Register

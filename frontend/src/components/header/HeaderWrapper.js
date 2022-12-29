@@ -3,7 +3,7 @@ import clsx from "clsx";
 import Logo from "./Logo";
 import NavMenu from "../navMenu/NavMenu";
 import IconGroup from "../IconGroup/IconGroup";
-// import MobileMenu from "../mobileMenu/MobileMenu";
+import MobileMenu from "../mobileMenu/MobileMenu";
 
 const HeaderWrapper = ({
   layout,
@@ -55,7 +55,7 @@ const HeaderWrapper = ({
           </div>
         </div>
         {/* mobile menu */}
-        {/* <MobileMenu /> */}
+        <MobileMenu />
       </div>
     </header>
   );
