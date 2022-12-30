@@ -529,6 +529,18 @@
       @media #{$xl-layout} {
         left: -34px;
       }
+      .account-dropdown-logout {
+        font-size: 13px;
+        line-height: 30px;
+        cursor: pointer;
+
+        transition: all 0.5s ease 0s;
+        &:hover {
+          padding-left: 5px;
+
+          color: $theme-color;
+        }
+      } 
       ul {
         li {
           a {

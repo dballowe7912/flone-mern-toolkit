@@ -1,10 +1,14 @@
-import { Link } from "react-router-dom";
-import { useSelector } from "react-redux";
+import { useEffect } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import { useSelector, useDispatch } from "react-redux";
 import { logout } from "../../features/auth/auth-slice";
+import { redirect } from "react-router-dom";
 import clsx from "clsx";
 import MenuCart from "./MenuCart";
 
 const IconGroup = ({ iconWhiteClass }) => {
+  const dispatch = useDispatch()
+  const navigate = useNavigate()
   const handleClick = e => {
     e.currentTarget.nextSibling.classList.toggle("active");
   };
@@ -19,6 +23,17 @@ const IconGroup = ({ iconWhiteClass }) => {
   const { wishlistItems } = useSelector((state) => state.wishlist);
   const { cartItems } = useSelector((state) => state.cart);
   const user = useSelector((state) => state.auth.user)
+
+  useEffect(() => {
+    console.log(user);
+  }, [user])
+
+  const handleLogout = () => {
+    dispatch(logout())
+
+    navigate('/login-register')
+  }
+  
   return (
     <div className={clsx("header-right-wrap", iconWhiteClass)} >
       <div className="same-style header-search d-none d-lg-block">
@@ -39,18 +54,20 @@ const IconGroup = ({ iconWhiteClass }) => {
           className="account-setting-active"
           onClick={e => handleClick(e)}
         >
-          <i className="pe-7s-user-female" />
+          <i className="pe-7s-user" />
         </button>
         <div className="account-dropdown">
           <ul>
-            { user ? 
+            { !user && 
               <li>
                 <Link to={process.env.PUBLIC_URL + "/login-register"}>Login</Link>
               </li>
-              :
-              <li>
-                <button onClick={logout()}>logout</button>
-              </li>
+            }
+            {
+              user && 
+                <li className="account-dropdown-logout" onClick={handleLogout}>
+                  Logout
+                </li>
             }
             <li>
               <Link to={process.env.PUBLIC_URL + "/login-register"}>

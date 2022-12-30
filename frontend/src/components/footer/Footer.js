@@ -44,7 +44,7 @@ const Footer = ({
                     <Link to={process.env.PUBLIC_URL + "/about"}>About us</Link>
                   </li>
                   <li>
-                    <Link to={process.env.PUBLIC_URL + "#/"}>
+                    <Link to={process.env.PUBLIC_URL + "/about"}>
                       Store location
                     </Link>
                   </li>
@@ -54,7 +54,7 @@ const Footer = ({
                     </Link>
                   </li>
                   <li>
-                    <Link to={process.env.PUBLIC_URL + "#/"}>
+                    <Link to={process.env.PUBLIC_URL + "/"}>
                       Orders tracking
                     </Link>
                   </li>
@@ -80,18 +80,18 @@ const Footer = ({
               <div className="footer-list">
                 <ul>
                   <li>
-                    <Link to={process.env.PUBLIC_URL + "#/"}>Returns</Link>
+                    <Link to={process.env.PUBLIC_URL + "/"}>Returns</Link>
                   </li>
                   <li>
-                    <Link to={process.env.PUBLIC_URL + "#/"}>
+                    <Link to={process.env.PUBLIC_URL + "/"}>
                       Support Policy
                     </Link>
                   </li>
                   <li>
-                    <Link to={process.env.PUBLIC_URL + "#/"}>Size guide</Link>
+                    <Link to={process.env.PUBLIC_URL + "/"}>Size guide</Link>
                   </li>
                   <li>
-                    <Link to={process.env.PUBLIC_URL + "#/"}>FAQs</Link>
+                    <Link to={process.env.PUBLIC_URL + "/"}>FAQs</Link>
                   </li>
                 </ul>
               </div>

@@ -16,7 +16,7 @@ const FooterCopyright = ({ footerLogo, spaceBottomClass, colorClass }) => {
           rel="noopener noreferrer"
           target="_blank"
         >
-          Flone
+          eCommerce Template
         </a>
         .<br /> All Rights Reserved
       </p>
