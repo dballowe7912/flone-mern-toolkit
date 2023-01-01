@@ -1,12 +1,14 @@
 import React, { Fragment, useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { Link, useLocation, useNavigate } from "react-router-dom"; 
-import { login, reset } from "../features/auth/auth-slice";
+import { login, register, reset } from "../features/auth/auth-slice";
 import Tab from "react-bootstrap/Tab";
 import Nav from "react-bootstrap/Nav";
 import SEO from "../components/seo/seo";
 import LayoutOne from "../layouts/Layout";
 import Breadcrumb from "../components/breadcrumb/Breadcrumb";
+import { toast } from 'react-toastify'
+import Register from "./Register";
 
 const LoginRegister = () => {
   const [ formData, setFormData ] = useState({
@@ -27,10 +29,12 @@ const LoginRegister = () => {
 
   useEffect(() => {
     if (isError) {
-      console.log(message)
+      toast.error(message)
     }
 
-    if (isSuccess || user) {
+
+    if (isSuccess) {
+      toast.success('Login Success!')
       navigate('/')
     }
 
@@ -44,7 +48,7 @@ const LoginRegister = () => {
     }))
   }
 
-  const onSubmit = (e) => {
+  const onLogin = (e) => {
     e.preventDefault()
 
     const userData = {
@@ -53,10 +57,6 @@ const LoginRegister = () => {
     }
 
     dispatch(login(userData))
-  }
-
-  const handleRegister = (e) => {
-    console.log(e);
   }
 
   return (
@@ -95,7 +95,7 @@ const LoginRegister = () => {
                       <Tab.Pane eventKey="login">
                         <div className="login-form-container">
                           <div className="login-register-form">
-                            <form onSubmit={onSubmit}>
+                            <form onSubmit={onLogin}>
                               <input
                                 type="email"
                                 name="email"
@@ -127,32 +127,7 @@ const LoginRegister = () => {
                         </div>
                       </Tab.Pane>
                       <Tab.Pane eventKey="register">
-                        <div className="login-form-container">
-                          <div className="login-register-form">
-                            <form onSubmit={handleRegister}>
-                              <input
-                                type="text"
-                                name="user-name"
-                                placeholder="Username"
-                              />
-                              <input
-                                type="password"
-                                name="user-password"
-                                placeholder="Password"
-                              />
-                              <input
-                                name="user-email"
-                                placeholder="Email"
-                                type="email"
-                              />
-                              <div className="button-box">
-                                <button type="submit">
-                                  <span>Register</span>
-                                </button>
-                              </div>
-                            </form>
-                          </div>
-                        </div>
+                        <Register />
                       </Tab.Pane>
                     </Tab.Content>
                   </Tab.Container>

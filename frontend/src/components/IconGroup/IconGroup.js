@@ -24,10 +24,6 @@ const IconGroup = ({ iconWhiteClass }) => {
   const { cartItems } = useSelector((state) => state.cart);
   const user = useSelector((state) => state.auth.user)
 
-  useEffect(() => {
-    console.log(user);
-  }, [user])
-
   const handleLogout = () => {
     dispatch(logout())
 

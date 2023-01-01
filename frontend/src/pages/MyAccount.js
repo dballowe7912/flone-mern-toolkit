@@ -1,5 +1,6 @@
 import { Fragment } from "react"; 
 import { useLocation } from "react-router-dom"; 
+import { useSelector } from "react-redux";
 import Accordion from "react-bootstrap/Accordion";
 import SEO from "../components/seo/seo";
 import LayoutOne from "../layouts/Layout";
@@ -7,7 +8,9 @@ import Breadcrumb from "../components/breadcrumb/Breadcrumb";
 
 const MyAccount = () => {
   let { pathname } = useLocation();
+  const user = useSelector((state) => state.auth.user)
 
+  console.log(user);
   return (
     <Fragment>
       <SEO
@@ -64,12 +67,12 @@ const MyAccount = () => {
                                   <input type="text" />
                                 </div>
                               </div>
-                              <div className="col-lg-6 col-md-6">
+                              {/* <div className="col-lg-6 col-md-6">
                                 <div className="billing-info">
                                   <label>Fax</label>
                                   <input type="text" />
                                 </div>
-                              </div>
+                              </div> */}
                             </div>
                             <div className="billing-back-btn">
                               <div className="billing-btn">

@@ -7,9 +7,9 @@ const User = require('../models/user.model')
 // @route   POST /api/v1/users
 // @access  Public
 const registerUser = asyncHandler(async (req, res) => {
-  const { name, email, password } = req.body
+  const {  email, password, firstName, lastName } = req.body
 
-  if (!name || !email || !password) {
+  if ( !email || !password) {
     res.status(400)
     throw new Error('Please add all fields')
   }
@@ -28,7 +28,8 @@ const registerUser = asyncHandler(async (req, res) => {
 
   // Create user
   const user = await User.create({
-    name,
+    firstName,
+    lastName,
     email,
     password: hashedPassword,
   })
