@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { useDispatch } from 'react-redux'
-import { register } from '../features/auth/auth-slice'
+import { toast } from 'react-toastify'
+import { register } from '../../features/auth/auth-slice'
 
 const Register = () => {
     const [ formData, setFormData ] = useState({
@@ -24,21 +25,25 @@ const Register = () => {
     const onChange = (e) => {
         setFormData((prevState) => ({
           ...prevState,
-          [e.target.name]: e.target.value,
+          [e.target.name]: e.target.value
         }))
     }
 
     const onRegister = (e) => {
         e.preventDefault()
 
-        const userData = {
-            firstName,
-            lastName,
-            email,
-            password
+        if (password !== confirmPassword) {
+            toast.error('Passwords do not match')
+        } else {
+            const userData = {
+                firstName,
+                lastName,
+                email,
+                password
+            }
+    
+            dispatch(register(userData))
         }
-
-        dispatch(register(userData))
     }
 
     return (

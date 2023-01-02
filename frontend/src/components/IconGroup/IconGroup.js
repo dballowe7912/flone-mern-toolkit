@@ -1,27 +1,26 @@
-import { useEffect } from "react";
-import { Link, useNavigate } from "react-router-dom";
-import { useSelector, useDispatch } from "react-redux";
-import { logout } from "../../features/auth/auth-slice";
-import { redirect } from "react-router-dom";
-import clsx from "clsx";
-import MenuCart from "./MenuCart";
+import React from "react"
+import { Link, useNavigate } from "react-router-dom"
+import { useSelector, useDispatch } from "react-redux"
+import { logout } from "../../features/auth/auth-slice"
+import clsx from "clsx"
+import MenuCart from "./MenuCart"
 
 const IconGroup = ({ iconWhiteClass }) => {
   const dispatch = useDispatch()
   const navigate = useNavigate()
   const handleClick = e => {
-    e.currentTarget.nextSibling.classList.toggle("active");
-  };
+    e.currentTarget.nextSibling.classList.toggle("active")
+  }
 
   const triggerMobileMenu = () => {
     const offcanvasMobileMenu = document.querySelector(
       "#offcanvas-mobile-menu"
-    );
-    offcanvasMobileMenu.classList.add("active");
-  };
-  const { compareItems } = useSelector((state) => state.compare);
-  const { wishlistItems } = useSelector((state) => state.wishlist);
-  const { cartItems } = useSelector((state) => state.cart);
+    )
+    offcanvasMobileMenu.classList.add("active")
+  }
+  const { compareItems } = useSelector((state) => state.compare)
+  const { wishlistItems } = useSelector((state) => state.wishlist)
+  const { cartItems } = useSelector((state) => state.cart)
   const user = useSelector((state) => state.auth.user)
 
   const handleLogout = () => {
@@ -121,7 +120,7 @@ const IconGroup = ({ iconWhiteClass }) => {
         </button>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default IconGroup;
+export default IconGroup

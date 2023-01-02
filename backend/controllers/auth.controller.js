@@ -37,7 +37,8 @@ const registerUser = asyncHandler(async (req, res) => {
   if (user) {
     res.status(201).json({
       _id: user.id,
-      name: user.name,
+      firstName: user.firstName,
+      lastName: user.lastName,
       email: user.email,
       token: generateToken(user._id),
     })
@@ -51,22 +52,34 @@ const registerUser = asyncHandler(async (req, res) => {
 // @route   POST /api/v1/users/login
 // @access  Public
 const loginUser = asyncHandler(async (req, res) => {
-  const { email, password } = req.body
-
   // Check for user email
-  const user = await User.findOne({ email })
-
-  if (user && (await bcrypt.compare(password, user.password))) {
+  const user = await User.findOne({ email: req.body.email })
+  const validPassword = await bcrypt.compare(req.body.password, user.password)
+  if (user && validPassword) {
     res.json({
-      _id: user.id,
-      name: user.name,
-      email: user.email,
-      token: generateToken(user._id),
-    })
+          _id: user._id,
+          firstName: user.firstName,
+          lastName: user.lastName,
+          email: user.email,
+          isAdmin: user.isAdmin,
+          token: generateToken(user._id),
+        })
   } else {
-    res.status(400)
-    throw new Error('Invalid credentials')
+    res.status(401)
+    throw new Error('Invalid email or password')
   }
+  // if (user && (await user.matchPassword(password))) {
+  //   res.json({
+  //     _id: user._id,
+  //     name: user.name,
+  //     email: user.email,
+  //     isAdmin: user.isAdmin,
+  //     token: generateToken(user._id),
+  //   })
+  // } else {
+  //   res.status(401)
+  //   throw new Error('Invalid email or password')
+  // }
 })
 
 // @desc    Get user data

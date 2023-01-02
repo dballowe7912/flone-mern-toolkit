@@ -1,5 +1,4 @@
 const bcrypt = require('bcryptjs')
-// firstName, lastName, email, password, isAdmin
 const users = [
   {
     firstName: 'Admin',

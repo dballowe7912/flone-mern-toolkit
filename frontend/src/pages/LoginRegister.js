@@ -8,7 +8,7 @@ import SEO from "../components/seo/seo";
 import LayoutOne from "../layouts/Layout";
 import Breadcrumb from "../components/breadcrumb/Breadcrumb";
 import { toast } from 'react-toastify'
-import Register from "./Register";
+import Register from "../components/register/Register";
 
 const LoginRegister = () => {
   const [ formData, setFormData ] = useState({
@@ -20,12 +20,12 @@ const LoginRegister = () => {
 
   const navigate = useNavigate()
   const dispatch = useDispatch()
+  let { pathname } = useLocation();
 
   const { user, isLoading, isError, isSuccess, message } = useSelector(
     (state) => state.auth
   )
 
-  let { pathname } = useLocation();
 
   useEffect(() => {
     if (isError) {
@@ -33,8 +33,7 @@ const LoginRegister = () => {
     }
 
 
-    if (isSuccess) {
-      toast.success('Login Success!')
+    if (isSuccess || user) {
       navigate('/')
     }
 
@@ -56,7 +55,11 @@ const LoginRegister = () => {
       password,
     }
 
+    console.log(userData);
+
     dispatch(login(userData))
+    .unwrap()
+    .then((data) => console.log(data))
   }
 
   return (
