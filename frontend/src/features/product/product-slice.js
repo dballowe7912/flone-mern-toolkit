@@ -32,6 +32,18 @@ export const fetchProduct = createAsyncThunk(
     }
 )
 
+export const deleteProduct = createAsyncThunk(
+    'product/deleteProduct',
+    async (id) => {
+        try {
+            await axios.delete(`/api/v1/products/${id}`)
+            console.log('Product deleted');
+        } catch (err) {
+            return err.message
+        }
+    }
+)
+
 const productSlice = createSlice({
     name: 'product',
     initialState,

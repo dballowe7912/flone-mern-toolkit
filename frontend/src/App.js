@@ -17,6 +17,7 @@ const Compare = lazy(() => import("./pages/Compare"))
 const Checkout = lazy(() => import("./pages/Checkout"))
 const CreateProduct = lazy(() => import("./pages/CreateProduct"))
 const NotFound = lazy(() => import("./pages/NotFound"))
+const ProductListPage = lazy(() => import("./pages/ProductListPage"))
 
 const App = () => {
   return (
@@ -79,9 +80,14 @@ const App = () => {
                     element={<Checkout/>}
                 /> 
                 <Route
-                    path={process.env.PUBLIC_URL + "/create-product"}
+                    path={process.env.PUBLIC_URL + "/admin/create-product"}
                     element={<CreateProduct/>}
                 /> 
+                <Route
+                    path={process.env.PUBLIC_URL + '/admin/productlist'}
+                    element={<ProductListPage />}
+                    exact
+                />
                 
                 <Route path="*" element={<NotFound/>} />
             </Routes>

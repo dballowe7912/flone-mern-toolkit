@@ -5,7 +5,7 @@ import { login, register, reset } from "../features/auth/auth-slice";
 import Tab from "react-bootstrap/Tab";
 import Nav from "react-bootstrap/Nav";
 import SEO from "../components/seo/seo";
-import LayoutOne from "../layouts/Layout";
+import Layout from "../layouts/Layout";
 import Breadcrumb from "../components/breadcrumb/Breadcrumb";
 import { toast } from 'react-toastify'
 import Register from "../components/register/Register";
@@ -68,7 +68,7 @@ const LoginRegister = () => {
         titleTemplate="Login"
         description="Login page of eCommerce template."
       />
-      <LayoutOne headerTop="visible">
+      <Layout headerTop="visible">
         {/* breadcrumb */}
         <Breadcrumb 
           pages={[
@@ -139,7 +139,7 @@ const LoginRegister = () => {
             </div>
           </div>
         </div>
-      </LayoutOne>
+      </Layout>
     </Fragment>
   );
 };
