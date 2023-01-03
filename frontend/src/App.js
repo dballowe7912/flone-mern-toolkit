@@ -1,21 +1,22 @@
 import React, { Suspense, lazy } from 'react'
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom"
 import { ToastContainer } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
 
 
-const Home = lazy(() => import("./pages/Home"));
-const ShopGrid = lazy(() => import("./pages/ShopGrid"));
-const Product = lazy(() => import("./pages/Product"));
-const About = lazy(() => import("./pages/About"));
-const Contact = lazy(() => import("./pages/Contact"));
-const MyAccount = lazy(() => import("./pages/MyAccount"));
-const LoginRegister = lazy(() => import("./pages/LoginRegister"));
-const Cart = lazy(() => import("./pages/Cart"));
-const Wishlist = lazy(() => import("./pages/Wishlist"));
-const Compare = lazy(() => import("./pages/Compare"));
-const Checkout = lazy(() => import("./pages/Checkout"));
-const NotFound = lazy(() => import("./pages/NotFound"));
+const Home = lazy(() => import("./pages/Home"))
+const ShopGrid = lazy(() => import("./pages/ShopGrid"))
+const Product = lazy(() => import("./pages/Product"))
+const About = lazy(() => import("./pages/About"))
+const Contact = lazy(() => import("./pages/Contact"))
+const MyAccount = lazy(() => import("./pages/MyAccount"))
+const LoginRegister = lazy(() => import("./pages/LoginRegister"))
+const Cart = lazy(() => import("./pages/Cart"))
+const Wishlist = lazy(() => import("./pages/Wishlist"))
+const Compare = lazy(() => import("./pages/Compare"))
+const Checkout = lazy(() => import("./pages/Checkout"))
+const CreateProduct = lazy(() => import("./pages/CreateProduct"))
+const NotFound = lazy(() => import("./pages/NotFound"))
 
 const App = () => {
   return (
@@ -76,6 +77,10 @@ const App = () => {
                 <Route
                     path={process.env.PUBLIC_URL + "/checkout"}
                     element={<Checkout/>}
+                /> 
+                <Route
+                    path={process.env.PUBLIC_URL + "/create-product"}
+                    element={<CreateProduct/>}
                 /> 
                 
                 <Route path="*" element={<NotFound/>} />

@@ -7,9 +7,10 @@ const {
     updateProduct,
     deleteProduct
 } = require('../controllers/product.controller')
+const { protect, admin } = require('../middleware/auth.middleware')
 
 router.route('/')
-    .post(createProduct)
+    .post(protect, admin, createProduct)
     .get(getAllProducts)
 router.route('/:id')
     .get(getSingleProduct)
