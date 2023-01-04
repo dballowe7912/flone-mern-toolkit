@@ -1,45 +1,62 @@
 import axios from 'axios'
-const { createSlice, createAsyncThunk } = require('@reduxjs/toolkit');
+import productService from './product.service';
+import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 
 const initialState = {
-    products: null,
-    product: null,
-    status: 'idle'
+    products: [],
+    product: {},
+    isLoading: false,
+    isSuccess: false,
+    message: ''
 }
 
 export const fetchProducts = createAsyncThunk(
     'product/fetchProducts', 
-    async (pageNumber = '') => {
-    try {
-        const response = await axios.get(`/api/v1/products?pageNumber=${pageNumber}`)
-
-        return await response.data.products
-    } catch (err) {
-        return err.message
+    async (_, thunkAPI) => {
+        try {
+        return await productService.fetchProducts()
+    } catch (error) {
+        const message =
+        (error.response &&
+          error.response.data &&
+          error.response.data.message) ||
+        error.message ||
+        error.toString()
+      return thunkAPI.rejectWithValue(message)
     }
 })
 
-export const fetchProduct = createAsyncThunk(
-    'product/fetchProduct',
-    async (id) => {
-        try {
-            const response = await axios.get(`/api/v1/products/${id}`)
 
-            return await response.data.product
-        } catch (err) {
-            return err.message
+export const fetchProductDetails = createAsyncThunk(
+    'product/fetchProduct',
+    async (id, thunkAPI) => {
+        try {
+            return await productService.fetchProductDetails(id) 
+        } catch (error) {
+            const message =
+            (error.response &&
+              error.response.data &&
+              error.response.data.message) ||
+            error.message ||
+            error.toString()
+          return thunkAPI.rejectWithValue(message)
         }
     }
 )
 
 export const deleteProduct = createAsyncThunk(
     'product/deleteProduct',
-    async (id) => {
+    async (id, thunkAPI) => {
         try {
-            await axios.delete(`/api/v1/products/${id}`)
-            console.log('Product deleted');
-        } catch (err) {
-            return err.message
+            return await productService.deleteProduct(id)
+        } catch (error) {
+            const message =
+            (error.response &&
+              error.response.data &&
+              error.response.data.message) ||
+            error.message ||
+            error.toString()
+          return thunkAPI.rejectWithValue(message)
         }
     }
 )
@@ -50,26 +67,30 @@ const productSlice = createSlice({
     extraReducers(builder) {
         builder
             .addCase(fetchProducts.pending, (state) => {
-                state.status = 'loading'
+                state.isLoading = true
             })
             .addCase(fetchProducts.fulfilled, (state, action) => {
-                state.status = 'succeeded'
+                state.isLoading = false
+                state.isSuccess = true
                 state.products = action.payload
             })
             .addCase(fetchProducts.rejected, (state, action) => {
-                state.status = 'failed'
-                state.error = action.error.message
+                state.isLoading = false
+                state.isSuccess = false
+                state.message = action.error.message
             })
-            .addCase(fetchProduct.pending, (state) => {
-                state.status = 'loading'
+            .addCase(fetchProductDetails.pending, (state) => {
+                state.isLoading = true
             })
-            .addCase(fetchProduct.fulfilled, (state, action) => {
-                state.status = 'succeeded'
+            .addCase(fetchProductDetails.fulfilled, (state, action) => {
+                state.isLoading = false
+                state.isSuccess = true
                 state.product = action.payload
             })
-            .addCase(fetchProduct.rejected, (state, action) => {
-                state.status = 'failed'
-                state.error = action.error.message
+            .addCase(fetchProductDetails.rejected, (state, action) => {
+                state.isLoading = false
+                state.isSuccess = false
+                state.message = action.error.message
             })
         }
     }

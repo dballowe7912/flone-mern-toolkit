@@ -7,17 +7,17 @@ import Breadcrumb from "../components/breadcrumb/Breadcrumb"
 import RelatedProductSlider from "../components/product/RelatedProductSlider"
 import ProductDescriptionTab from "../components/product/ProductDescriptionTab"
 import ProductImageDescription from "../components/product/ProductImageDescription"
-import { fetchProduct, selectProduct, selectProducts } from "../features/product/product-slice"
+import { fetchProductDetails } from "../features/product/product-slice"
 
 const Product = () => {
   let { pathname } = useLocation()
   let { id } = useParams()
   const dispatch = useDispatch()
-  const product = useSelector((state) => state.product.product)
+  const product = useSelector((state) => state.product.product.product)
   
   useEffect(() => {
-    dispatch(fetchProduct(id))
-  }, [])
+    dispatch(fetchProductDetails(id))
+  }, [dispatch, id])
 
   return (
     <Fragment>
@@ -35,27 +35,24 @@ const Product = () => {
           ]} 
         />
 
-        {/* product description with image */}
-        { product ? 
-        <ProductImageDescription
-          spaceTopClass="pt-100"
-          spaceBottomClass="pb-100"
-          product={product}
-        /> : <div></div> }
+        { product && 
+        <>
+          <ProductImageDescription
+            spaceTopClass="pt-100"
+            spaceBottomClass="pb-100"
+            product={product}
+          />
 
-        {/* product description tab */}
-        { product ? 
-        <ProductDescriptionTab
-          spaceBottomClass="pb-90"
-          productFullDesc={product.fullDescription}
-        /> : <div></div> }
+          <ProductDescriptionTab
+            spaceBottomClass="pb-90"
+            productFullDesc={product.fullDescription}
+          />
 
-        {/* related product slider */}
-        { product ? 
-        <RelatedProductSlider
-          spaceBottomClass="pb-95"
-          category={product.category[0]}
-        /> : <div></div> }
+          <RelatedProductSlider
+            spaceBottomClass="pb-95"
+            category={product.category[0]}
+          /> 
+        </> }
       </Layout>
     </Fragment>
   );

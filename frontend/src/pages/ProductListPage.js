@@ -1,6 +1,6 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
-import { deleteProduct } from '../features/product/product-slice'
+import { deleteProduct, fetchProducts } from '../features/product/product-slice'
 import { useNavigate } from 'react-router-dom'
 
 import { Table, Button, Row, Col } from 'react-bootstrap'
@@ -14,6 +14,8 @@ const ProductListPage = () => {
     const dispatch = useDispatch()
     const products = useSelector((state) => state.product.products)
     console.log(products)
+
+    
 
     const deleteHandler = (id) => {
         if (window.confirm('Are you sure')) {
