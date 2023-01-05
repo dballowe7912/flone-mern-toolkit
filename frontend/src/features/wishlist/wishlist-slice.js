@@ -1,4 +1,4 @@
-// import cogoToast from 'cogo-toast';
+import { toast } from 'react-toastify'
 const { createSlice } = require('@reduxjs/toolkit');
 
 const wishlistSlice = createSlice({
@@ -8,18 +8,18 @@ const wishlistSlice = createSlice({
     },
     reducers: {
         addToWishlist(state, action) {
-            const isInWishlist = state.wishlistItems.findIndex(item => item.id === action.payload.id);
+            const isInWishlist = state.wishlistItems.findIndex(item => item._id === action.payload._id);
             if(isInWishlist > -1){
-                console.log("Product already in wishlist", {position: "bottom-left"});
+                console.error("Product already in wishlist", {position: "bottom-left"});
             } else {
                 state.wishlistItems.push(action.payload);
-                console.log("Added To wishlist", {position: "bottom-left"});
+                toast("Added To wishlist", {position: "bottom-left", theme: "dark"});
             }
             
         },
         deleteFromWishlist(state, action){
-            state.wishlistItems = state.wishlistItems.filter(item => item.id !== action.payload);
-            console.log("Removed From Wishlist", {position: "bottom-left"});
+            state.wishlistItems = state.wishlistItems.filter(item => item._id !== action.payload);
+            toast("Removed From Wishlist", {position: "bottom-left", theme: "dark"});
         },
         deleteAllFromWishlist(state){
             state.wishlistItems = []

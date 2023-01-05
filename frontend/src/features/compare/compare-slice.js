@@ -1,4 +1,4 @@
-// import cogoToast from 'cogo-toast';
+import { toast } from 'react-toastify'
 const { createSlice } = require('@reduxjs/toolkit');
 
 const compareSlice = createSlice({
@@ -9,11 +9,11 @@ const compareSlice = createSlice({
     reducers: {
         addToCompare(state, action) {
             state.compareItems.push(action.payload);
-            console.log("Added To compare", {position: "bottom-left"});
+            toast("Added To compare", {position: "bottom-left", theme: "dark"});
         },
         deleteFromCompare(state, action){
-            state.compareItems = state.compareItems.filter(item => item.id !== action.payload);
-            console.log("Removed From Compare", {position: "bottom-left"});
+            state.compareItems = state.compareItems.filter(item => item._id !== action.payload);
+            toast("Removed From Compare", {position: "bottom-left", theme: "dark"});
         }
     },
 });

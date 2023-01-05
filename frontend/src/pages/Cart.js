@@ -58,7 +58,7 @@ const Cart = () => {
                               cartItem.discount
                             );
                             const finalProductPrice = cartItem.price.toFixed(2);
-                            const finalDiscountedPrice = discountedPrice.toFixed(2);
+                            const finalDiscountedPrice = discountedPrice ? discountedPrice.toFixed(2) : 0;
 
                             discountedPrice != null
                               ? (cartTotalPrice +=
@@ -202,7 +202,7 @@ const Cart = () => {
                     <div className="cart-shiping-update-wrapper">
                       <div className="cart-shiping-update">
                         <Link
-                          to={process.env.PUBLIC_URL + "/shop-grid-standard"}
+                          to={process.env.PUBLIC_URL + "/shop-grid"}
                         >
                           Continue Shopping
                         </Link>
@@ -316,7 +316,7 @@ const Cart = () => {
                     </div>
                     <div className="item-empty-area__text">
                       No items found in cart <br />{" "}
-                      <Link to={process.env.PUBLIC_URL + "/shop-grid-standard"}>
+                      <Link to={process.env.PUBLIC_URL + "/shop-grid"}>
                         Shop Now
                       </Link>
                     </div>

@@ -19,7 +19,7 @@ const MenuCart = () => {
                 item.discount
               );
               const finalProductPrice = item.price.toFixed(2);
-              const finalDiscountedPrice = discountedPrice.toFixed(2);
+              const finalDiscountedPrice = discountedPrice ? discountedPrice.toFixed(2) : 0;
 
               discountedPrice != null
                 ? (cartTotalPrice += finalDiscountedPrice * item.quantity)

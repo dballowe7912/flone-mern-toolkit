@@ -1,5 +1,5 @@
 import { v4 as uuidv4 } from 'uuid';
-// import cogoToast from 'cogo-toast';
+import { toast } from 'react-toastify'
 const { createSlice } = require('@reduxjs/toolkit');
 
 const cartSlice = createSlice({
@@ -70,24 +70,24 @@ const cartSlice = createSlice({
                 }
             }
 
-            console.log("Added To Cart", {position: "bottom-left"});
+            toast("Added To Cart", {position: "bottom-left", theme: "dark"});
         },
         deleteFromCart(state, action) {
             state.cartItems = state.cartItems.filter(item => item.cartItemId !== action.payload);
-            console.log("Removed From Cart", {position: "bottom-left"});
+            toast("Removed From Cart", {position: "bottom-left", theme: "dark"});
         },
         decreaseQuantity(state, action){
             const product = action.payload;
             if (product.quantity === 1) {
                 state.cartItems = state.cartItems.filter(item => item.cartItemId !== product.cartItemId);
-                console.log("Removed From Cart", {position: "bottom-left"});
+                toast("Removed From Cart", {position: "bottom-left", theme: "dark"});
             } else {
                 state.cartItems = state.cartItems.map(item =>
                     item.cartItemId === product.cartItemId
                         ? { ...item, quantity: item.quantity - 1 }
                         : item
                 );
-                console.log("Item Decremented From Cart", {position: "bottom-left"});
+                toast("Item Decremented From Cart", {position: "bottom-left", theme: "dark"});
             }
         },
         deleteAllFromCart(state){
