@@ -23,7 +23,7 @@ const variationSchema = new mongoose.Schema(
         },
         size: {
             // size: [{ name: String, stock: Number }]
-            type: mongoose.Schema.Types.Array,
+            type: [sizeSchema],
             ref: 'size'
         }
     }
@@ -54,7 +54,7 @@ const productSchema = new mongoose.Schema(
         category: { type: [String] },
         tag: { type: [String] },
         variation: {
-            type: mongoose.Schema.Types.Array,
+            type: [variationSchema],
             ref: 'variation'
         },
         image: { type: [String] },

@@ -10,7 +10,6 @@ import { addToWishlist } from "../../features/wishlist/wishlist-slice";
 
 const ProductGridSingle = ({
   product,
-  currency,
   cartItem,
   wishlistItem,
   compareItem,
@@ -18,10 +17,8 @@ const ProductGridSingle = ({
 }) => {
   const [modalShow, setModalShow] = useState(false);
   const discountedPrice = getDiscountPrice(product.price, product.discount);
-  const finalProductPrice = +(product.price * currency.currencyRate).toFixed(2);
-  const finalDiscountedPrice = +(
-    discountedPrice * currency.currencyRate
-  ).toFixed(2);
+  const finalProductPrice = product.price.toFixed(2);
+  const finalDiscountedPrice = discountedPrice ? discountedPrice.toFixed(2) : 0;
   const dispatch = useDispatch();
 
   return (
@@ -134,13 +131,13 @@ const ProductGridSingle = ({
           <div className="product-price">
             {discountedPrice !== null ? (
               <Fragment>
-                <span>{currency.currencySymbol + finalDiscountedPrice}</span>{" "}
+                <span>{`$${finalDiscountedPrice}`}</span>{" "}
                 <span className="old">
-                  {currency.currencySymbol + finalProductPrice}
+                  {`$${finalProductPrice}`}
                 </span>
               </Fragment>
             ) : (
-              <span>{currency.currencySymbol + finalProductPrice} </span>
+              <span>{`$${finalProductPrice}`} </span>
             )}
           </div>
         </div>
@@ -150,7 +147,6 @@ const ProductGridSingle = ({
         show={modalShow}
         onHide={() => setModalShow(false)}
         product={product}
-        currency={currency}
         discountedPrice={discountedPrice}
         finalProductPrice={finalProductPrice}
         finalDiscountedPrice={finalDiscountedPrice}

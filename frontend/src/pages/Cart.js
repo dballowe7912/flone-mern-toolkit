@@ -15,7 +15,6 @@ const Cart = () => {
   const dispatch = useDispatch();
   let { pathname } = useLocation();
   
-  const currency = useSelector((state) => state.currency);
   const { cartItems } = useSelector((state) => state.cart);
 
   return (
@@ -58,12 +57,8 @@ const Cart = () => {
                               cartItem.price,
                               cartItem.discount
                             );
-                            const finalProductPrice = (
-                              cartItem.price * currency.currencyRate
-                            ).toFixed(2);
-                            const finalDiscountedPrice = (
-                              discountedPrice * currency.currencyRate
-                            ).toFixed(2);
+                            const finalProductPrice = cartItem.price.toFixed(2);
+                            const finalDiscountedPrice = discountedPrice.toFixed(2);
 
                             discountedPrice != null
                               ? (cartTotalPrice +=
@@ -120,18 +115,15 @@ const Cart = () => {
                                   {discountedPrice !== null ? (
                                     <Fragment>
                                       <span className="amount old">
-                                        {currency.currencySymbol +
-                                          finalProductPrice}
+                                        {`$${finalProductPrice}`}
                                       </span>
                                       <span className="amount">
-                                        {currency.currencySymbol +
-                                          finalDiscountedPrice}
+                                        {`$${finalDiscountedPrice}`}
                                       </span>
                                     </Fragment>
                                   ) : (
                                     <span className="amount">
-                                      {currency.currencySymbol +
-                                        finalProductPrice}
+                                      {`$${finalProductPrice}`}
                                     </span>
                                   )}
                                 </td>
@@ -176,15 +168,16 @@ const Cart = () => {
                                   </div>
                                 </td>
                                 <td className="product-subtotal">
-                                  {discountedPrice !== null
-                                    ? currency.currencySymbol +
-                                      (
+                                  {
+                                    discountedPrice !== null
+                                    ? (
                                         finalDiscountedPrice * cartItem.quantity
                                       ).toFixed(2)
-                                    : currency.currencySymbol +
+                                    : 
                                       (
                                         finalProductPrice * cartItem.quantity
-                                      ).toFixed(2)}
+                                      ).toFixed(2)
+                                  }
                                 </td>
 
                                 <td className="product-remove">
@@ -297,14 +290,14 @@ const Cart = () => {
                       <h5>
                         Total products{" "}
                         <span>
-                          {currency.currencySymbol + cartTotalPrice.toFixed(2)}
+                          {`$${cartTotalPrice.toFixed(2)}`}
                         </span>
                       </h5>
 
                       <h4 className="grand-totall-title">
                         Grand Total{" "}
                         <span>
-                          {currency.currencySymbol + cartTotalPrice.toFixed(2)}
+                          {`$${cartTotalPrice.toFixed(2)}`}
                         </span>
                       </h4>
                       <Link to={process.env.PUBLIC_URL + "/checkout"}>

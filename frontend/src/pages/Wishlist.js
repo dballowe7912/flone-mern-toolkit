@@ -12,7 +12,6 @@ const Wishlist = () => {
   const dispatch = useDispatch();
   let { pathname } = useLocation();
   
-  const currency = useSelector((state) => state.currency);
   const { wishlistItems } = useSelector((state) => state.wishlist);
   const { cartItems } = useSelector((state) => state.cart);
   
@@ -55,12 +54,8 @@ const Wishlist = () => {
                               wishlistItem.price,
                               wishlistItem.discount
                             );
-                            const finalProductPrice = (
-                              wishlistItem.price * currency.currencyRate
-                            ).toFixed(2);
-                            const finalDiscountedPrice = (
-                              discountedPrice * currency.currencyRate
-                            ).toFixed(2);
+                            const finalProductPrice = wishlistItem.price.toFixed(2);
+                            const finalDiscountedPrice = discountedPrice ? discountedPrice.toFixed(2) : 0;
                             const cartItem = cartItems.find(
                               item => item.id === wishlistItem.id
                             );
@@ -101,18 +96,15 @@ const Wishlist = () => {
                                   {discountedPrice !== null ? (
                                     <Fragment>
                                       <span className="amount old">
-                                        {currency.currencySymbol +
-                                          finalProductPrice}
+                                        {`$${finalProductPrice}`}
                                       </span>
                                       <span className="amount">
-                                        {currency.currencySymbol +
-                                          finalDiscountedPrice}
+                                        {`$${finalDiscountedPrice}`}
                                       </span>
                                     </Fragment>
                                   ) : (
                                     <span className="amount">
-                                      {currency.currencySymbol +
-                                        finalProductPrice}
+                                      {`$${finalProductPrice}`}
                                     </span>
                                   )}
                                 </td>

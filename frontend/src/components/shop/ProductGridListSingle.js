@@ -11,7 +11,6 @@ import { addToCompare } from "../../features/compare/compare-slice";
 
 const ProductGridListSingle = ({
   product,
-  currency,
   cartItem,
   wishlistItem,
   compareItem,
@@ -19,10 +18,8 @@ const ProductGridListSingle = ({
 }) => {
   const [modalShow, setModalShow] = useState(false);
   const discountedPrice = getDiscountPrice(product.price, product.discount);
-  const finalProductPrice = +(product.price * currency.currencyRate).toFixed(2);
-  const finalDiscountedPrice = +(
-    discountedPrice * currency.currencyRate
-  ).toFixed(2);
+  const finalProductPrice = product.price.toFixed(2);
+  const finalDiscountedPrice = discountedPrice ? discountedPrice.toFixed(2) : 0;
   const dispatch = useDispatch();
   return (
     <Fragment>
@@ -134,13 +131,13 @@ const ProductGridListSingle = ({
             <div className="product-price">
               {discountedPrice !== null ? (
                 <Fragment>
-                  <span>{currency.currencySymbol + finalDiscountedPrice}</span>{" "}
+                  <span>{`$${finalDiscountedPrice}`}</span>{" "}
                   <span className="old">
-                    {currency.currencySymbol + finalProductPrice}
+                    {`$${finalProductPrice}`}
                   </span>
                 </Fragment>
               ) : (
-                <span>{currency.currencySymbol + finalProductPrice} </span>
+                <span>{`$${finalProductPrice}`} </span>
               )}
             </div>
           </div>
@@ -192,14 +189,14 @@ const ProductGridListSingle = ({
                   {discountedPrice !== null ? (
                     <Fragment>
                       <span>
-                        {currency.currencySymbol + finalDiscountedPrice}
+                        {`$${finalDiscountedPrice}`}
                       </span>{" "}
                       <span className="old">
-                        {currency.currencySymbol + finalProductPrice}
+                        {`$${finalProductPrice}`}
                       </span>
                     </Fragment>
                   ) : (
-                    <span>{currency.currencySymbol + finalProductPrice} </span>
+                    <span>{`$${finalProductPrice}`} </span>
                   )}
                 </div>
                 {product.rating && product.rating > 0 ? (
@@ -302,7 +299,6 @@ const ProductGridListSingle = ({
         show={modalShow}
         onHide={() => setModalShow(false)}
         product={product}
-        currency={currency}
         discountedPrice={discountedPrice}
         finalProductPrice={finalProductPrice}
         finalDiscountedPrice={finalDiscountedPrice}

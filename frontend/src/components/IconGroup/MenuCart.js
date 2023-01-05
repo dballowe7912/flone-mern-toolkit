@@ -5,7 +5,6 @@ import { getDiscountPrice } from "../../helpers/product";
 import { deleteFromCart } from "../../features/cart/cart-slice";
 const MenuCart = () => {
   const dispatch = useDispatch();
-  const currency = useSelector((state) => state.currency);
   const { cartItems } = useSelector((state) => state.cart);
   let cartTotalPrice = 0;
 
@@ -19,12 +18,8 @@ const MenuCart = () => {
                 item.price,
                 item.discount
               );
-              const finalProductPrice = (
-                item.price * currency.currencyRate
-              ).toFixed(2);
-              const finalDiscountedPrice = (
-                discountedPrice * currency.currencyRate
-              ).toFixed(2);
+              const finalProductPrice = item.price.toFixed(2);
+              const finalDiscountedPrice = discountedPrice.toFixed(2);
 
               discountedPrice != null
                 ? (cartTotalPrice += finalDiscountedPrice * item.quantity)
@@ -53,8 +48,8 @@ const MenuCart = () => {
                     <h6>Qty: {item.quantity}</h6>
                     <span>
                       {discountedPrice !== null
-                        ? currency.currencySymbol + finalDiscountedPrice
-                        : currency.currencySymbol + finalProductPrice}
+                        ? `$${finalDiscountedPrice}`
+                        : `${finalProductPrice}`}
                     </span>
                     {item.selectedProductColor &&
                     item.selectedProductSize ? (
@@ -79,7 +74,7 @@ const MenuCart = () => {
             <h4>
               Total :{" "}
               <span className="shop-total">
-                {currency.currencySymbol + cartTotalPrice.toFixed(2)}
+                {`$${cartTotalPrice.toFixed(2)}`}
               </span>
             </h4>
           </div>

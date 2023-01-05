@@ -13,7 +13,6 @@ const Compare = () => {
   const dispatch = useDispatch();
   let { pathname } = useLocation();
 
-  const currency = useSelector((state) => state.currency);
   const { compareItems } = useSelector((state) => state.compare);
   const { cartItems } = useSelector((state) => state.cart);
 
@@ -146,29 +145,22 @@ const Compare = () => {
                                 compareItem.price,
                                 compareItem.discount
                               );
-                              const finalProductPrice = (
-                                compareItem.price * currency.currencyRate
-                              ).toFixed(2);
-                              const finalDiscountedPrice = (
-                                discountedPrice * currency.currencyRate
-                              ).toFixed(2);
+                              const finalProductPrice = compareItem.price.toFixed(2);
+                              const finalDiscountedPrice = discountedPrice.toFixed(2);
                               return (
                                 <td className="product-price" key={key}>
                                   {discountedPrice !== null ? (
                                     <Fragment>
                                       <span className="amount old">
-                                        {currency.currencySymbol +
-                                          finalProductPrice}
+                                        {`$${finalProductPrice}`}
                                       </span>
                                       <span className="amount">
-                                        {currency.currencySymbol +
-                                          finalDiscountedPrice}
+                                        {`$${finalDiscountedPrice}`}
                                       </span>
                                     </Fragment>
                                   ) : (
                                     <span className="amount">
-                                      {currency.currencySymbol +
-                                        finalProductPrice}
+                                      {`$${finalProductPrice}`}
                                     </span>
                                   )}
                                 </td>

@@ -1,7 +1,6 @@
 import React, { useEffect } from "react";
 import MobileMenuSearch from "./MobileSearch";
 import MobileNavMenu from "./MobileNavMenu";
-// import MobileLangCurChange from "./MobileLangCurrChange";
 import MobileWidgets from "./MobileWidgets";
 
 const MobileMenu = () => {
@@ -60,9 +59,6 @@ const MobileMenu = () => {
 
           {/* mobile nav menu */}
           <MobileNavMenu />
-
-          {/* mobile language and currency */}
-          {/* <MobileLangCurChange /> */}
 
           {/* mobile widgets */}
           <MobileWidgets />

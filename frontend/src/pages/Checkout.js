@@ -10,7 +10,6 @@ const Checkout = () => {
   let cartTotalPrice = 0;
 
   let { pathname } = useLocation();
-  const currency = useSelector((state) => state.currency);
   const { cartItems } = useSelector((state) => state.cart);
 
   return (
@@ -144,12 +143,8 @@ const Checkout = () => {
                                 cartItem.price,
                                 cartItem.discount
                               );
-                              const finalProductPrice = (
-                                cartItem.price * currency.currencyRate
-                              ).toFixed(2);
-                              const finalDiscountedPrice = (
-                                discountedPrice * currency.currencyRate
-                              ).toFixed(2);
+                              const finalProductPrice = cartItem.price.toFixed(2);
+                              const finalDiscountedPrice = discountedPrice.toFixed(2);
 
                               discountedPrice != null
                                 ? (cartTotalPrice +=
@@ -163,12 +158,12 @@ const Checkout = () => {
                                   </span>{" "}
                                   <span className="order-price">
                                     {discountedPrice !== null
-                                      ? currency.currencySymbol +
+                                      ? '$' +
                                         (
                                           finalDiscountedPrice *
                                           cartItem.quantity
                                         ).toFixed(2)
-                                      : currency.currencySymbol +
+                                      : '$' +
                                         (
                                           finalProductPrice * cartItem.quantity
                                         ).toFixed(2)}
@@ -188,8 +183,7 @@ const Checkout = () => {
                           <ul>
                             <li className="order-total">Total</li>
                             <li>
-                              {currency.currencySymbol +
-                                cartTotalPrice.toFixed(2)}
+                              {`$${cartTotalPrice.toFixed(2)}`}
                             </li>
                           </ul>
                         </div>

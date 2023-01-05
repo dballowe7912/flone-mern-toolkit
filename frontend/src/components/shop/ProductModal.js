@@ -9,7 +9,7 @@ import { addToCart } from "../../features/cart/cart-slice";
 import { addToWishlist } from "../../features/wishlist/wishlist-slice";
 import { addToCompare } from "../../features/compare/compare-slice";
 
-function ProductModal({ product, currency, discountedPrice, finalProductPrice, finalDiscountedPrice, show, onHide, wishlistItem, compareItem }) {
+function ProductModal({ product, discountedPrice, finalProductPrice, finalDiscountedPrice, show, onHide, wishlistItem, compareItem }) {
   const [thumbsSwiper, setThumbsSwiper] = useState({});
   const dispatch = useDispatch();
   const { cartItems } = useSelector((state) => state.cart);
@@ -112,14 +112,14 @@ function ProductModal({ product, currency, discountedPrice, finalProductPrice, f
               {discountedPrice !== null ? (
                 <Fragment>
                   <span>
-                    {currency.currencySymbol + finalDiscountedPrice}
+                    {`$${finalProductPrice}`}
                   </span>{" "}
                   <span className="old">
-                    {currency.currencySymbol + finalProductPrice}
+                    {`$${finalProductPrice}`}
                   </span>
                 </Fragment>
               ) : (
-                <span>{currency.currencySymbol + finalProductPrice} </span>
+                <span>{`$${finalProductPrice}`} </span>
               )}
             </div>
             {product.rating && product.rating > 0 ? (

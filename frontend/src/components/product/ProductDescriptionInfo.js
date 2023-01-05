@@ -10,7 +10,6 @@ import { addToCompare } from "../../features/compare/compare-slice";
 const ProductDescriptionInfo = ({
   product,
   discountedPrice,
-  currency,
   finalDiscountedPrice,
   finalProductPrice,
   cartItems,
@@ -42,13 +41,13 @@ const ProductDescriptionInfo = ({
       <div className="product-details-price">
         {discountedPrice !== null ? (
           <Fragment>
-            <span>{currency.currencySymbol + finalDiscountedPrice}</span>{" "}
+            <span>{`$${finalDiscountedPrice}`}</span>{" "}
             <span className="old">
-              {currency.currencySymbol + finalProductPrice}
+              {`$${finalProductPrice}`}
             </span>
           </Fragment>
         ) : (
-          <span>{currency.currencySymbol + finalProductPrice} </span>
+          <span>{`$${finalProductPrice}`} </span>
         )}
       </div>
       {product.rating && product.rating > 0 ? (
@@ -64,7 +63,7 @@ const ProductDescriptionInfo = ({
         <p>{product.shortDescription}</p>
       </div>
 
-      {product.variation > 0 ? (
+      {product.variation ? (
         <div className="pro-details-size-color">
           <div className="pro-details-color-wrap">
             <span>Color</span>
