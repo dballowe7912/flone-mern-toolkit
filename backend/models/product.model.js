@@ -53,6 +53,7 @@ const productSchema = new mongoose.Schema(
         saleCount: { type: Number },
         category: { type: [String] },
         tag: { type: [String] },
+        stock: { type: Number },
         variation: {
             type: [variationSchema],
             ref: 'variation'

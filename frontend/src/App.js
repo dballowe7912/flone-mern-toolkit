@@ -16,8 +16,8 @@ const Wishlist = lazy(() => import("./pages/Wishlist"))
 const Compare = lazy(() => import("./pages/Compare"))
 const Checkout = lazy(() => import("./pages/Checkout"))
 const CreateProduct = lazy(() => import("./pages/CreateProduct"))
-const NotFound = lazy(() => import("./pages/NotFound"))
 const ProductListPage = lazy(() => import("./pages/ProductListPage"))
+const NotFound = lazy(() => import("./pages/NotFound"))
 
 const App = () => {
   return (

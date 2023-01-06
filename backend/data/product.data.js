@@ -2303,7 +2303,7 @@ const products = [
       name: "Lorem ipsum kids one",
       price: 12.45,
       discount: 10,
-      "offerEnd": "October 5, 2024 12:11:00",
+      offerEnd: "October 5, 2024 12:11:00",
       new: false,
       rating: 4,
       saleCount: 54,
@@ -2908,7 +2908,7 @@ const products = [
       saleCount: 83,
       category: ["fashion", "kids"],
       tag: ["fashion", "kids"],
-      stock: 0,
+      stock: 5,
       image: [
         "/assets/img/product/fashion/30.jpg",
         "/assets/img/product/fashion/23.jpg",
