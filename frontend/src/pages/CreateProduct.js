@@ -91,7 +91,7 @@ const CreateProduct = () => {
         />
         <FormContainer>
         <Form onSubmit={handleSubmit}>
-          <Form.Group controlId='sku'>
+          <Form.Group controlId='sku' className="mt-30">
             <Form.Label>Product SKU</Form.Label>
             <Form.Control
               type='text'
@@ -101,7 +101,7 @@ const CreateProduct = () => {
               value={formState.sku}
           ></Form.Control>
           </Form.Group>
-          <Form.Group controlId='name'>
+          <Form.Group controlId='name' className="mt-30">
             <Form.Label>Product Name</Form.Label>
             <Form.Control
               type='text'
@@ -111,7 +111,7 @@ const CreateProduct = () => {
               value={formState.name}
           ></Form.Control>
           </Form.Group>
-          <Form.Group controlId='price'>
+          <Form.Group controlId='price' className="mt-30">
             <Form.Label>Product Price</Form.Label>
             <Form.Control
               type='number'
@@ -121,7 +121,7 @@ const CreateProduct = () => {
               value={formState.price}
           ></Form.Control>
           </Form.Group>
-          <Form.Group controlId='name'>
+          <Form.Group controlId='name' className="mt-30">
             <Form.Label>Product Discount</Form.Label>
             <Form.Control
               type='number'
@@ -131,7 +131,7 @@ const CreateProduct = () => {
               value={formState.discount}
           ></Form.Control>
           </Form.Group>
-          <Form.Group controlId='offerEnd'>
+          <Form.Group controlId='offerEnd' className="mt-30">
             <Form.Label>Offer End Date</Form.Label>
             <Form.Control
               type='date'
@@ -141,7 +141,7 @@ const CreateProduct = () => {
               value={formState.offerEnd}
           ></Form.Control>
           </Form.Group>
-          <Form.Group controlId='isNew'>
+          <Form.Group controlId='isNew' className="mt-30">
             <Form.Label>New Product</Form.Label>
             <Form.Check
               type='checkbox'
@@ -149,7 +149,7 @@ const CreateProduct = () => {
               checked={formState.isNew}
           ></Form.Check>
           </Form.Group>
-          <Form.Group controlId='saleCount'>
+          <Form.Group controlId='saleCount' className="mt-30">
             <Form.Label>Product Sale Count</Form.Label>
             <Form.Control
               type='number'
@@ -159,7 +159,7 @@ const CreateProduct = () => {
               value={formState.saleCount}
           ></Form.Control>
           </Form.Group>
-          <Form.Group controlId='category'>
+          <Form.Group controlId='category' className="mt-30">
             <Form.Label>Product Category</Form.Label>
             <Form.Control
               type='text'
@@ -169,7 +169,7 @@ const CreateProduct = () => {
               value={formState.category}
           ></Form.Control>
           </Form.Group>
-          <Form.Group controlId='tag'>
+          <Form.Group controlId='tag' className="mt-30">
             <Form.Label>Product Tags</Form.Label>
             <Form.Control
               type='text'
@@ -196,7 +196,7 @@ const CreateProduct = () => {
               {/* name */}
               {/* stock */}
           {/* add image input */}
-          <Form.Group>
+          <Form.Group controlId='shortDescription' className="mt-30">
             <Form.Label>Add Product Short Description</Form.Label>
             <Form.Control
               as='textarea'
@@ -207,7 +207,7 @@ const CreateProduct = () => {
               value={formState.shortDescription}
             />
           </Form.Group>
-          <Form.Group>
+          <Form.Group controlId='fullDescription' className="mt-30">
             <Form.Label>Add Product Full Description</Form.Label>
             <Form.Control
               as='textarea'
@@ -218,7 +218,7 @@ const CreateProduct = () => {
               value={formState.fullDescription}
             />
           </Form.Group>
-          <button type='submit' className='btn btn-success'>Submit</button>
+          <button type='submit' className='create-product-button animated mt-30 mb-30'>Create Product</button>
         </Form>
         </FormContainer>
     </Layout>

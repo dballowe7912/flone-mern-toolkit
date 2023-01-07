@@ -1,7 +1,7 @@
 import { EffectFade } from 'swiper';
 import Swiper, { SwiperSlide } from "../swiper";
 import heroSliderData from "../../data/hero-slider-one.json";
-import HeroSliderOneSingle from "./HeroSliderOneSingle";
+import HeroSliderSingle from "./HeroSliderSingle";
 
 const params = {
   effect: "fade",
@@ -23,7 +23,7 @@ const HeroSliderOne = () => {
           <Swiper options={params}>
             {heroSliderData.map((single, key) => (
               <SwiperSlide key={key}>
-                <HeroSliderOneSingle
+                <HeroSliderSingle
                   data={single}
                 />
               </SwiperSlide>

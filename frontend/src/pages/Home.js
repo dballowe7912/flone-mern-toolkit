@@ -2,7 +2,7 @@ import React from "react";
 import { Fragment } from "react";
 import SEO from "../components/seo/seo";
 import Layout from "../layouts/Layout";
-import HeroSliderOne from "../components/heroSlider/HeroSliderOne";
+import HeroSlider from "../components/heroSlider/HeroSlider";
 import FeatureIcon from "../components/featureIcon/FeatureIcon";
 import TabProduct from "../components/tabProduct/TabProduct";
 // import BlogFeatured from "../../wrappers/blog-featured/BlogFeatured";
@@ -21,7 +21,7 @@ const Home = () => {
         headerPaddingClass="header-padding-1"
       >
         {/* hero slider */}
-        <HeroSliderOne />
+        <HeroSlider />
 
         {/* featured icon */}
         <FeatureIcon spaceTopClass="pt-100" spaceBottomClass="pb-60" />

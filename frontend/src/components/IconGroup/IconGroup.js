@@ -8,6 +8,12 @@ import MenuCart from "./MenuCart"
 const IconGroup = ({ iconWhiteClass }) => {
   const dispatch = useDispatch()
   const navigate = useNavigate()
+  
+  const { compareItems } = useSelector((state) => state.compare)
+  const { wishlistItems } = useSelector((state) => state.wishlist)
+  const { cartItems } = useSelector((state) => state.cart)
+  const user = useSelector((state) => state.auth.user)
+  
   const handleClick = e => {
     e.currentTarget.nextSibling.classList.toggle("active")
   }
@@ -18,10 +24,6 @@ const IconGroup = ({ iconWhiteClass }) => {
     )
     offcanvasMobileMenu.classList.add("active")
   }
-  const { compareItems } = useSelector((state) => state.compare)
-  const { wishlistItems } = useSelector((state) => state.wishlist)
-  const { cartItems } = useSelector((state) => state.cart)
-  const user = useSelector((state) => state.auth.user)
 
   const handleLogout = () => {
     dispatch(logout())
