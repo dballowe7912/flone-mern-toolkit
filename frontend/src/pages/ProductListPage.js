@@ -12,10 +12,7 @@ import Breadcrumb from "../components/breadcrumb/Breadcrumb"
 const ProductListPage = () => {
     const { pathname } = useNavigate()
     const dispatch = useDispatch()
-    const products = useSelector((state) => state.product.products)
-    console.log(products)
-
-    
+    const products = useSelector((state) => state.product.products)  
 
     const deleteHandler = (id) => {
         if (window.confirm('Are you sure')) {

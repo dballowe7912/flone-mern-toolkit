@@ -1,6 +1,6 @@
 import clsx from "clsx";
 
-const TextGridOneSingle = ({ data, spaceBottomClass }) => {
+const TextGridSingle = ({ data, spaceBottomClass }) => {
   return (
       <div className={clsx("single-mission", spaceBottomClass)}>
         <h3>{data.title}</h3>
@@ -9,4 +9,4 @@ const TextGridOneSingle = ({ data, spaceBottomClass }) => {
   );
 };
 
-export default TextGridOneSingle;
+export default TextGridSingle;

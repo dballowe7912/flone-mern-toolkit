@@ -1,14 +1,14 @@
 import clsx from "clsx";
-import SectionTitleTwo from "../sectionTitle/SectionTitleTwo";
-import teamMemberData from "./team-member-one.json";
-import TeamMemberOneSingle from "./TeamMemberOneSingle";
+import SectionTitle from "../tabProduct/SectionTitle";
+import teamMemberData from "./team-member.json";
+import TeamMemberSingle from "./TeamMemberSingle";
 
-const TeamMemberOne = ({ spaceTopClass, spaceBottomClass }) => {
+const TeamMember = ({ spaceTopClass, spaceBottomClass }) => {
   return (
     <div className={clsx("team-area", spaceTopClass, spaceBottomClass)}>
       <div className="container">
         {/* section title */}
-        <SectionTitleTwo
+        <SectionTitle
           titleText="Team Members"
           subTitleText="Lorem ipsum dolor sit amet conse ctetu."
           positionClass="text-center"
@@ -18,7 +18,7 @@ const TeamMemberOne = ({ spaceTopClass, spaceBottomClass }) => {
         <div className="row">
           {teamMemberData?.map((single, key) => (
             <div className="col-lg-3 col-md-6 col-sm-6" key={key}>
-              <TeamMemberOneSingle
+              <TeamMemberSingle
                 data={single}
                 spaceBottomClass="mb-30"
               />
@@ -30,4 +30,4 @@ const TeamMemberOne = ({ spaceTopClass, spaceBottomClass }) => {
   );
 };
 
-export default TeamMemberOne;
+export default TeamMember;

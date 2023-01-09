@@ -3,7 +3,7 @@ import { Link, useLocation } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { getDiscountPrice } from "../helpers/product";
 import SEO from "../components/seo/seo";
-import LayoutOne from "../layouts/Layout";
+import Layout from "../layouts/Layout";
 import Breadcrumb from "../components/breadcrumb/Breadcrumb";
 import Rating from "../components/tabProduct/ProductRating";
 import { addToCart } from "../features/cart/cart-slice";
@@ -22,7 +22,7 @@ const Compare = () => {
         titleTemplate="Compare"
         description="Compare page of eCommerce template."
       />
-      <LayoutOne headerTop="visible">
+      <Layout headerTop="visible">
         {/* breadcrumb */}
         <Breadcrumb 
           pages={[
@@ -218,7 +218,7 @@ const Compare = () => {
             )}
           </div>
         </div>
-      </LayoutOne>
+      </Layout>
     </Fragment>
   );
 };

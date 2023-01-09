@@ -1,28 +1,39 @@
 import React, { useState, useReducer } from 'react'
 import Layout from '../layouts/Layout'
 import { useLocation } from 'react-router-dom'
-import { Form } from 'react-bootstrap'
+import { Form, FormGroup } from 'react-bootstrap'
 import Breadcrumb from '../components/breadcrumb/Breadcrumb'
 import FormContainer from '../components/formContainer/FormContainer'
 
+const ACTION = {
+  HANDLE_TEXT_INPUT: 'HANDLE_TEXT_INPUT',
+  HANDLE_NUMBER_INPUT: 'HANDLE_NUMBER_INPUT',
+  HANDLE_TOGGLE_CHECKBOX: 'HANDLE_TOGGLE_CHECKBOX',
+  // HANDLE_VARIATION_CHANGE: 'HANDLE_VARIATION_CHANGE'
+}
 
 const formReducer = (state, action) => {
   switch (action.type) {
-    case 'HANDLE_TEXT_INPUT':
+    case ACTION.HANDLE_TEXT_INPUT:
       return {
         ...state,
         [action.field] : action.payload
       }  
-      case 'HANDLE_NUMBER_INPUT':
+      case ACTION.HANDLE_NUMBER_INPUT:
         return {
           ...state,
           [action.field] : action.payload
         }  
-    case 'HANDLE_TOGGLE_CHECKBOX':
+    case ACTION.HANDLE_TOGGLE_CHECKBOX:
       return {
         ...state,
         isNew : !state.isNew
       }
+    // case ACTION.HANDLE_VARIATION_CHANGE:
+    //   return {
+    //     ...state,
+    //     [action.field] : action.payload
+    //   }
     default:
       return state
   }
@@ -39,16 +50,16 @@ const initialFormState = {
   category: [],
   tag: [],
   variation: [
-    {
-      color: '',
-      image: '',
-      size: [
-        {
-          name: '',
-          stock: 0
-        }
-      ]
-    }
+    // {
+    //   color: '',
+    //   image: '',
+    //   size: [
+    //     {
+    //       name: '',
+    //       stock: 0
+    //     }
+    //   ]
+    // }
   ],
   image: [],
   shortDescription: '',
@@ -58,10 +69,15 @@ const initialFormState = {
 const CreateProduct = () => {
   const { pathname } = useLocation()
   const [ formState, dispatch ] = useReducer(formReducer, initialFormState)
+  const [ variation, setVariation ] = useState({
+    color: '',
+    image: null
+  })
+  const [ addVariation, setAddVariation ] = useState(false)
   
   const handleTextChange = (event) => {
     dispatch({
-      type: 'HANDLE_TEXT_INPUT',
+      type: ACTION.HANDLE_TEXT_INPUT,
       field: event.target.name,
       payload: event.target.value
     })
@@ -69,7 +85,7 @@ const CreateProduct = () => {
 
   const handleNumberChange = (event) => {
     dispatch({
-      type: 'HANDLE_NUMBER_INPUT',
+      type: ACTION.HANDLE_NUMBER_INPUT,
       field: event.target.name,
       payload: event.target.value
     })
@@ -145,7 +161,7 @@ const CreateProduct = () => {
             <Form.Label>New Product</Form.Label>
             <Form.Check
               type='checkbox'
-              onChange={() => dispatch({ type: 'HANDLE_TOGGLE_CHECKBOX' })}
+              onChange={() => dispatch({ type: ACTION.HANDLE_TOGGLE_CHECKBOX })}
               checked={formState.isNew}
           ></Form.Check>
           </Form.Group>
@@ -180,18 +196,47 @@ const CreateProduct = () => {
           ></Form.Control>
           </Form.Group>
           {/* variations */}
+            {/* add variation */}
+            <button onClick={(e) => setAddVariation(!addVariation)}>+</button>
             {/* color */}
-            {/* <Form.Group controlId='colors'>
-              <Form.Label>Product Colors</Form.Label>
-              <Form.Control
-                type='text'
-                placeholder='Enter product color'
-                onChange={handleTextChange}
-                name='color'
-                value={formState.variation}
-            ></Form.Control>
-            </Form.Group> */}
+            <FormGroup controlId='color' className='mt-30'>
+              <Form.Label>Add color variation</Form.Label>
+                <Form.Select aria-label="Default select example" 
+                  onChange={(e) => setVariation((prevState) => { 
+                    console.log(prevState, e.target.value);
+                    return {
+                      ...prevState, 
+                      color: e.target.value
+                    }
+                  })} 
+                  value={variation.color}
+                  name='color'
+                  disabled={addVariation ? true : false}
+                >
+                <option>Select color</option>
+                <option value="white">White</option>
+                <option value="black">Black</option>
+                <option value="red">Red</option>
+                <option value="blue">Blue</option>
+                <option value="green">Green</option>
+                <option value="yellow">Yellow</option>
+                <option value="brown">Brown</option>
+              </Form.Select>
+            </FormGroup>
             {/* image */}
+            <Form.Group controlId="formFile" className="mb-30">
+              <Form.Label>Add Variation Photo</Form.Label>
+              <Form.Control 
+                type="file" 
+                value={variation.image}
+                onChange={(e) => setVariation((prevState) => {
+                  return {
+                    ...prevState,
+                    image: e.target.value
+                  }
+                })}
+              />
+            </Form.Group>
             {/* size */}
               {/* name */}
               {/* stock */}

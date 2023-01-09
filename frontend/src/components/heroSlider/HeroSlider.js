@@ -15,7 +15,7 @@ const params = {
 };
 
 
-const HeroSliderOne = () => {
+const HeroSlider = () => {
   return (
     <div className="slider-area">
       <div className="slider-active nav-style-1">
@@ -35,4 +35,4 @@ const HeroSliderOne = () => {
   );
 };
 
-export default HeroSliderOne;
+export default HeroSlider;

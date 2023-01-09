@@ -1,6 +1,6 @@
 import clsx from "clsx"
 
-const SectionTitleTwo = ({
+const SectionTitle = ({
   titleText,
   subTitleText,
   positionClass,
@@ -14,4 +14,4 @@ const SectionTitleTwo = ({
   );
 };
 
-export default SectionTitleTwo;
+export default SectionTitle;

@@ -1,6 +1,6 @@
 import clsx from "clsx";
 
-const TeamMemberOneSingle = ({ data, spaceBottomClass }) => {
+const TeamMemberSingle = ({ data, spaceBottomClass }) => {
   return (
       <div className={clsx("team-wrapper", spaceBottomClass)}>
         <div className="team-img">
@@ -44,4 +44,4 @@ const TeamMemberOneSingle = ({ data, spaceBottomClass }) => {
   );
 };
 
-export default TeamMemberOneSingle;
+export default TeamMemberSingle;

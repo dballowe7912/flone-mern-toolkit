@@ -7,7 +7,7 @@ import SectionTitleWithText from "../components/sectionTitle/SectionTitleWithTex
 import Banner from "../components/banner/Banner";
 import TextGrid from "../components/textGrid/TextGrid";
 import FunFact from "../components/funFact/FunFact";
-import TeamMemberOne from "../components/teamMemberOne/TeamMemberOne";
+import TeamMember from "../components/teamMember/TeamMember";
 import BrandLogoSlider from "../components/brandLogoSlider/BrandLogoSlider";
 
 const About = () => {
@@ -45,7 +45,7 @@ const About = () => {
         />
 
         {/* team member */}
-        <TeamMemberOne spaceTopClass="pt-95" spaceBottomClass="pb-70" />
+        <TeamMember spaceTopClass="pt-95" spaceBottomClass="pb-70" />
 
         {/* brand logo slider */}
         <BrandLogoSlider spaceBottomClass="pb-70" />

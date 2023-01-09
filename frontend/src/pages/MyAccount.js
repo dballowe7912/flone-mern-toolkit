@@ -3,7 +3,7 @@ import { useLocation } from "react-router-dom";
 import { useSelector } from "react-redux";
 import Accordion from "react-bootstrap/Accordion";
 import SEO from "../components/seo/seo";
-import LayoutOne from "../layouts/Layout";
+import Layout from "../layouts/Layout";
 import Breadcrumb from "../components/breadcrumb/Breadcrumb";
 
 const MyAccount = () => {
@@ -17,7 +17,7 @@ const MyAccount = () => {
         titleTemplate="My Account"
         description="My Account page of eCommerce template."
       />
-      <LayoutOne headerTop="visible">
+      <Layout headerTop="visible">
         {/* breadcrumb */}
         <Breadcrumb 
           pages={[
@@ -159,7 +159,7 @@ const MyAccount = () => {
             </div>
           </div>
         </div>
-      </LayoutOne>
+      </Layout>
     </Fragment>
   );
 };

@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-const HeroSliderOneSingle = ({ data }) => {
+const HeroSliderSingle = ({ data }) => {
   return (
     <div className="single-slider slider-height-1 bg-purple">
       <div className="container">
@@ -34,4 +34,4 @@ const HeroSliderOneSingle = ({ data }) => {
   );
 };
 
-export default HeroSliderOneSingle;
+export default HeroSliderSingle;

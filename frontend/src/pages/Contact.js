@@ -1,7 +1,7 @@
 import { Fragment } from "react"; 
 import { useLocation } from "react-router-dom";
 import SEO from "../components/seo/seo";
-import LayoutOne from "../layouts/Layout";
+import Layout from "../layouts/Layout";
 import Breadcrumb from "../components/breadcrumb/Breadcrumb";
 import GoogleMap from "../components/google-map"
 
@@ -14,7 +14,7 @@ const Contact = () => {
         titleTemplate="Contact"
         description="Contact page of eCommerce template."
       />
-      <LayoutOne headerTop="visible">
+      <Layout headerTop="visible">
         {/* breadcrumb */}
         <Breadcrumb 
           pages={[
@@ -135,7 +135,7 @@ const Contact = () => {
             </div>
           </div>
         </div>
-      </LayoutOne>
+      </Layout>
     </Fragment>
   );
 };
