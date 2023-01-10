@@ -30,7 +30,7 @@ const IconGroup = ({ iconWhiteClass }) => {
 
     navigate('/login-register')
   }
-  
+    
   return (
     <div className={clsx("header-right-wrap", iconWhiteClass)} >
       <div className="same-style header-search d-none d-lg-block">
@@ -75,6 +75,11 @@ const IconGroup = ({ iconWhiteClass }) => {
               <Link to={process.env.PUBLIC_URL + "/my-account"}>
                 my account
               </Link>
+            </li>
+            <li>
+            {
+              user.isAdmin ? <Link to={process.env.PUBLIC_URL + "/admin/productlist"}>product list</Link> : <></>
+            }
             </li>
           </ul>
         </div>

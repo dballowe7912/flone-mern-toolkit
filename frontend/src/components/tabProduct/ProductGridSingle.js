@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import Rating from "./ProductRating";
 import { getDiscountPrice } from "../../helpers/product";
-// import ProductModal from "./ProductModal";
+import ProductModal from "../shop/ProductModal";
 import { addToCart } from "../../features/cart/cart-slice";
 import { addToWishlist } from "../../features/wishlist/wishlist-slice";
 
@@ -143,7 +143,7 @@ const ProductGridSingle = ({
         </div>
       </div>
       {/* product modal */}
-      {/* <ProductModal
+      <ProductModal
         show={modalShow}
         onHide={() => setModalShow(false)}
         product={product}
@@ -152,7 +152,7 @@ const ProductGridSingle = ({
         finalDiscountedPrice={finalDiscountedPrice}
         wishlistItem={wishlistItem}
         compareItem={compareItem}
-      /> */}
+      />
     </Fragment>
   );
 };
