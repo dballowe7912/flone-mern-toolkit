@@ -6,6 +6,6 @@
 # Backend
 `npm install`
 
-# Fronend
+# Frontend
 `cd frontend` then `npm install`
 ```
