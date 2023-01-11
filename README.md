@@ -1,7 +1,6 @@
-# flone-mern-toolkit
+### Flone-MERN-Toolkit
 ## React stand alone eCommerce template, refactored to use the MERN stack.
 
-```
 ### Install Dependencies
 ```
 # Backend
