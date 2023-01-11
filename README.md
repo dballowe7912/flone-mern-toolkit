@@ -3,9 +3,9 @@
 
 ### Install Dependencies
 ```
-# Backend
+## Backend
 `npm install`
 
-# Frontend
+## Frontend
 `cd frontend` then `npm install`
 ```
