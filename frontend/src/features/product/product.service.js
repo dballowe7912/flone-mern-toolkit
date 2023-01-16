@@ -11,9 +11,14 @@ const fetchProducts = async (pageNumber = '') => {
 }
 
 // Fetch Product Details
-const fetchProductDetails = async (id) => {
+const listProductDetails = async (id) => {
     const response = await axios.get(`${API_URL}/${id}`)
-    return response.data
+    if (response) {
+        console.log(response);
+        return await response.data.product
+    } else {
+        console.log('wtf is this not working')
+    }
 }
 
 // Delete Product
@@ -23,7 +28,7 @@ const deleteProduct = async (id) => {
 }
 const productService = {
     fetchProducts,
-    fetchProductDetails,
+    listProductDetails,
     deleteProduct
 }
 

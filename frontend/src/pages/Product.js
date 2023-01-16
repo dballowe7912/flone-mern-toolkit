@@ -1,4 +1,4 @@
-import React, { Fragment, useEffect, useState } from "react"
+import React, { Fragment, useEffect } from "react"
 import { useSelector, useDispatch } from "react-redux"
 import { useParams, useLocation } from "react-router-dom"
 import SEO from "../components/seo/seo"
@@ -7,7 +7,7 @@ import Breadcrumb from "../components/breadcrumb/Breadcrumb"
 import RelatedProductSlider from "../components/product/RelatedProductSlider"
 import ProductDescriptionTab from "../components/product/ProductDescriptionTab"
 import ProductImageDescription from "../components/product/ProductImageDescription"
-import { fetchProductDetails } from "../features/product/product-slice"
+import { listProductDetails } from "../features/product/product-slice"
 
 const Product = () => {
   let { pathname } = useLocation()
@@ -16,7 +16,7 @@ const Product = () => {
   const product = useSelector((state) => state.product.product.product)
   
   useEffect(() => {
-    dispatch(fetchProductDetails(id))
+    dispatch(listProductDetails(id))
   }, [dispatch, id])
 
   return (

@@ -3,7 +3,6 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom"
 import { ToastContainer } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
 
-
 const Home = lazy(() => import("./pages/Home"))
 const ShopGrid = lazy(() => import("./pages/ShopGrid"))
 const Product = lazy(() => import("./pages/Product"))
@@ -15,9 +14,10 @@ const Cart = lazy(() => import("./pages/Cart"))
 const Wishlist = lazy(() => import("./pages/Wishlist"))
 const Compare = lazy(() => import("./pages/Compare"))
 const Checkout = lazy(() => import("./pages/Checkout"))
-const CreateProduct = lazy(() => import("./pages/CreateProduct"))
+
 const ProductListPage = lazy(() => import("./pages/ProductListPage"))
 const NotFound = lazy(() => import("./pages/NotFound"))
+const ProductEditPage = lazy(() => import("./pages/ProductEditPage"))
 
 const App = () => {
   return (
@@ -44,6 +44,10 @@ const App = () => {
                 <Route
                     path={process.env.PUBLIC_URL + "/product/:id"}
                     element={<Product />}
+                />
+                <Route 
+                    path={process.env.PUBLIC_URL + "/admin/product/:id/edit"}
+                    element={<ProductEditPage />}
                 />
                 <Route
                     path={process.env.PUBLIC_URL + "/about"}
@@ -79,10 +83,7 @@ const App = () => {
                     path={process.env.PUBLIC_URL + "/checkout"}
                     element={<Checkout/>}
                 /> 
-                <Route
-                    path={process.env.PUBLIC_URL + "/admin/create-product"}
-                    element={<CreateProduct/>}
-                /> 
+
                 <Route
                     path={process.env.PUBLIC_URL + '/admin/productlist'}
                     element={<ProductListPage />}

@@ -30,6 +30,7 @@ const getSingleProduct = async (req, res) => {
     if (!product) {
         throw new Error('Product not found')
     }
+    console.log(product);
     res.status(200).json({ product })
 }
 

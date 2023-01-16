@@ -27,11 +27,11 @@ export const fetchProducts = createAsyncThunk(
 })
 
 
-export const fetchProductDetails = createAsyncThunk(
-    'product/fetchProduct',
+export const listProductDetails = createAsyncThunk(
+    'product/listProductDetails',
     async (id, thunkAPI) => {
         try {
-            return await productService.fetchProductDetails(id) 
+            return await productService.listProductDetails(id) 
         } catch (error) {
             const message =
             (error.response &&
@@ -79,15 +79,15 @@ const productSlice = createSlice({
                 state.isSuccess = false
                 state.message = action.error.message
             })
-            .addCase(fetchProductDetails.pending, (state) => {
+            .addCase(listProductDetails.pending, (state) => {
                 state.isLoading = true
             })
-            .addCase(fetchProductDetails.fulfilled, (state, action) => {
+            .addCase(listProductDetails.fulfilled, (state, action) => {
                 state.isLoading = false
                 state.isSuccess = true
-                state.product = action.payload
+                state.product.product = action.payload
             })
-            .addCase(fetchProductDetails.rejected, (state, action) => {
+            .addCase(listProductDetails.rejected, (state, action) => {
                 state.isLoading = false
                 state.isSuccess = false
                 state.message = action.error.message
