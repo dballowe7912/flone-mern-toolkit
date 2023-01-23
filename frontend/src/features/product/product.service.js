@@ -14,7 +14,6 @@ const fetchProducts = async (pageNumber = '') => {
 const listProductDetails = async (id) => {
     const response = await axios.get(`${API_URL}/${id}`)
     if (response) {
-        console.log(response);
         return await response.data.product
     } else {
         console.log('wtf is this not working')
@@ -26,6 +25,7 @@ const deleteProduct = async (id) => {
     await axios.delete(`${API_URL}/${id}`)
     console.log('Product deleted');
 }
+
 const productService = {
     fetchProducts,
     listProductDetails,

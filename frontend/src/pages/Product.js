@@ -8,13 +8,14 @@ import RelatedProductSlider from "../components/product/RelatedProductSlider"
 import ProductDescriptionTab from "../components/product/ProductDescriptionTab"
 import ProductImageDescription from "../components/product/ProductImageDescription"
 import { listProductDetails } from "../features/product/product-slice"
+import { selectProduct } from "../features/product/product-slice"
 
 const Product = () => {
   let { pathname } = useLocation()
   let { id } = useParams()
   const dispatch = useDispatch()
-  const product = useSelector((state) => state.product.product.product)
-  
+  const product = useSelector(selectProduct)
+
   useEffect(() => {
     dispatch(listProductDetails(id))
   }, [dispatch, id])

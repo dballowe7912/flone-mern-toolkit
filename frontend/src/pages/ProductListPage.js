@@ -9,10 +9,12 @@ import { LinkContainer } from 'react-router-bootstrap'
 import Layout from "../layouts/Layout"
 import Breadcrumb from "../components/breadcrumb/Breadcrumb"
 
+import { selectAllProducts } from '../features/product/product-slice'
+
 const ProductListPage = () => {
     const { pathname } = useNavigate()
     const dispatch = useDispatch()
-    const products = useSelector((state) => state.product.products)  
+    const products = useSelector(selectAllProducts)  
 
     const deleteHandler = (id) => {
         if (window.confirm('Are you sure')) {

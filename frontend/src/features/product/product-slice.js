@@ -1,4 +1,4 @@
-import axios from 'axios'
+import { useSelector } from 'react-redux';
 import productService from './product.service';
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 
@@ -13,16 +13,16 @@ const initialState = {
 export const fetchProducts = createAsyncThunk(
     'product/fetchProducts', 
     async (_, thunkAPI) => {
-        try {
+    try {
         return await productService.fetchProducts()
     } catch (error) {
         const message =
-        (error.response &&
-          error.response.data &&
-          error.response.data.message) ||
-        error.message ||
-        error.toString()
-      return thunkAPI.rejectWithValue(message)
+            (error.response &&
+            error.response.data &&
+            error.response.data.message) ||
+            error.message ||
+            error.toString()
+        return thunkAPI.rejectWithValue(message)
     }
 })
 
@@ -34,12 +34,12 @@ export const listProductDetails = createAsyncThunk(
             return await productService.listProductDetails(id) 
         } catch (error) {
             const message =
-            (error.response &&
-              error.response.data &&
-              error.response.data.message) ||
-            error.message ||
-            error.toString()
-          return thunkAPI.rejectWithValue(message)
+                (error.response &&
+                error.response.data &&
+                error.response.data.message) ||
+                error.message ||
+                error.toString()
+            return thunkAPI.rejectWithValue(message)
         }
     }
 )
@@ -51,12 +51,12 @@ export const deleteProduct = createAsyncThunk(
             return await productService.deleteProduct(id)
         } catch (error) {
             const message =
-            (error.response &&
-              error.response.data &&
-              error.response.data.message) ||
-            error.message ||
-            error.toString()
-          return thunkAPI.rejectWithValue(message)
+                (error.response &&
+                error.response.data &&
+                error.response.data.message) ||
+                error.message ||
+                error.toString()
+            return thunkAPI.rejectWithValue(message)
         }
     }
 )
@@ -95,5 +95,10 @@ const productSlice = createSlice({
         }
     }
 );
+
+export const selectAllProducts = (state) => state.product.products
+export const selectProduct = (state) => state.product.product.product
+
+
 
 export default productSlice.reducer;

@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useReducer } from 'react'
+import React, { useEffect, useState } from 'react'
 import FormContainer from '../components/formContainer/FormContainer'
 import { Form, Button } from 'react-bootstrap'
 import { useParams, Link } from 'react-router-dom'
@@ -48,8 +48,22 @@ const ProductEditPage = () => {
     
     const submitHandler = (e) => {
         e.preventDefault()
-
-        console.log('submitted')
+        const updatedProduct = {
+            sku,
+            name,
+            price,
+            discount,
+            isNew,
+            rating,
+            saleCount,
+            category,
+            tag,
+            image,
+            stock: countInStock,
+            shortDescription,
+            fullDescription
+        }
+        console.log(updatedProduct)
     }
 
     return (

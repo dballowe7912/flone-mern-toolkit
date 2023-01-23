@@ -78,7 +78,7 @@ const IconGroup = ({ iconWhiteClass }) => {
             </li>
             <li>
             {
-              user.isAdmin ? <Link to={process.env.PUBLIC_URL + "/admin/productlist"}>product list</Link> : <></>
+              user && user.isAdmin ? <Link to={process.env.PUBLIC_URL + "/admin/productlist"}>product list</Link> : <></>
             }
             </li>
           </ul>
