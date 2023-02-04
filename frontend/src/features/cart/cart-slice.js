@@ -58,6 +58,7 @@ const cartSlice = createSlice({
                 } else {
                     state.cartItems = state.cartItems.map(item => {
                         if(item.cartItemId === cartItem.cartItemId){
+                            console.log(cartItem);
                             return {
                                 ...item,
                                 quantity: product.quantity ? item.quantity + product.quantity : item.quantity + 1,

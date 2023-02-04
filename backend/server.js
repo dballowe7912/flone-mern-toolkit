@@ -27,15 +27,15 @@ app.use('/api/v1/users', authRouter)
 app.use(errorHandler)
 
 /* ENV VARIABLES */
-const PORT = process.env.PORT
+const PORT = process.env.PORT || 5000
 const NODE_ENV = process.env.NODE_ENV
 const MONGO_URI = process.env.MONGO_URI
 
 const start = async () => {
     try {
-      await connectDB(process.env.MONGO_URI);
+      await connectDB(MONGO_URI);
       app.listen(PORT, () => {
-        console.log(`Server is listening in ${NODE_ENV} mode on port ${PORT}...`);
+        console.log(`Server is listening in ${NODE_ENV} mode on port ${PORT}...`.bold.yellow);
       });
     } catch (error) {
       console.log(error);

@@ -1,6 +1,5 @@
-import { useSelector } from 'react-redux';
-import productService from './product.service';
-import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
+import productService from './product.service'
+import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
 
 const initialState = {
     products: [],
@@ -94,11 +93,9 @@ const productSlice = createSlice({
             })
         }
     }
-);
+)
 
 export const selectAllProducts = (state) => state.product.products
 export const selectProduct = (state) => state.product.product.product
 
-
-
-export default productSlice.reducer;
+export default productSlice.reducer
